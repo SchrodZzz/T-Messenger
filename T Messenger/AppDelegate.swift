@@ -13,25 +13,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
+    var window: UIWindow?
+
+    //MARK: Application states
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        printStateInfo(forFunctionNamed: #function)
+
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
 
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
+    #if PRINT_APP_STATES
+        private func printStateInfo(forFunctionNamed functionName: String) {
+            print("Application moved from <Not running> to <Foreground, Inactive>: \(functionName)")
+        }
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
+        func applicationDidEnterBackground(_ application: UIApplication) {
+            print("Application moved from <Foreground, Inactive> to <Background>: \(#function)")
+        }
 
+        func applicationWillEnterForeground(_ application: UIApplication) {
+            print("Application moved from <Background> to <Foreground, Inactive>: \(#function)")
+        }
+
+
+        func applicationDidBecomeActive(_ application: UIApplication) {
+            print("Application moved from <Foreground, Inactive> to <Foreground, Active>: \(#function)")
+        }
+
+        func applicationWillResignActive(_ application: UIApplication) {
+            print("Application moved from <Foreground, Active> to <Foreground, Inactive>: \(#function)")
+        }
+
+
+        func applicationWillTerminate(_ application: UIApplication) {
+            print("Application moved from <Background> to <Not running>: \(#function)")
+        }
+    #else
+        private func printStateInfo() { }
+    #endif
 
 }
 
