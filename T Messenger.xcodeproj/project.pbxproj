@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		201A4E9423F6715D0036B7FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A4E9323F6715D0036B7FC /* AppDelegate.swift */; };
-		201A4E9823F6715D0036B7FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A4E9723F6715D0036B7FC /* ViewController.swift */; };
+		201A4E9823F6715D0036B7FC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A4E9723F6715D0036B7FC /* ProfileViewController.swift */; };
 		201A4E9B23F6715D0036B7FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201A4E9923F6715D0036B7FC /* Main.storyboard */; };
 		201A4E9D23F671610036B7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 201A4E9C23F671610036B7FC /* Assets.xcassets */; };
 		201A4EA023F671610036B7FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201A4E9E23F671610036B7FC /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		201A4E9023F6715D0036B7FC /* T Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		201A4E9323F6715D0036B7FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		201A4E9723F6715D0036B7FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		201A4E9723F6715D0036B7FC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		201A4E9A23F6715D0036B7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		201A4E9C23F671610036B7FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		201A4E9F23F671610036B7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				201A4E9323F6715D0036B7FC /* AppDelegate.swift */,
-				201A4E9723F6715D0036B7FC /* ViewController.swift */,
+				201A4E9723F6715D0036B7FC /* ProfileViewController.swift */,
 				201A4E9923F6715D0036B7FC /* Main.storyboard */,
 				201A4E9C23F671610036B7FC /* Assets.xcassets */,
 				201A4E9E23F671610036B7FC /* LaunchScreen.storyboard */,
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				201A4E9823F6715D0036B7FC /* ViewController.swift in Sources */,
+				201A4E9823F6715D0036B7FC /* ProfileViewController.swift in Sources */,
 				201A4E9423F6715D0036B7FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,10 +289,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Tinkoff.T-Messenger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG PRINT_APP_STATES PRINT_VC_STATES";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -309,7 +309,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Tinkoff.T-Messenger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
