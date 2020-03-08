@@ -1,5 +1,11 @@
 #  T Messenger
 ## Versions
+#### v0.3
+```
+Add ConversationsListViewController
+Add ConversationsViewController
+Add smth more (-;
+``` 
 #### v0.2
 ```
 Add ProfileViewController

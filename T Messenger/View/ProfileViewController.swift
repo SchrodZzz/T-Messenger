@@ -11,12 +11,12 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     //MARK: - Properties
-    @IBOutlet weak var ProfileImageView: UIImageView!
-    @IBOutlet weak var ProfileImageChoiceButton: UIButton!
-    @IBOutlet weak var EditButton: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageChoiceButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
-    @IBOutlet weak var UserNameLabel: UILabel!
-    @IBOutlet weak var DescriptionTextView: UITextView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
 
     //MARK: - Lifecycle
@@ -24,27 +24,6 @@ class ProfileViewController: UIViewController {
         super.viewWillLayoutSubviews()
 
         self.setUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-//        print(EditButton.frame)
-//        -> Attempt to print frame before full editButton initialization
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        print(EditButton.frame)
-//       -> frame value from .storyboard file
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        print(EditButton.frame)
-//       -> frame might have different value because it's already was changed by autolayout (another device)
     }
 
     //MARK: Button Actions
@@ -76,7 +55,7 @@ class ProfileViewController: UIViewController {
 //MARK: - ProfileViewController UI Setups
 private extension ProfileViewController {
     func setUI() {
-        let radius = ProfileImageChoiceButton.frame.size.height / 2
+        let radius = profileImageChoiceButton.frame.size.height / 2
         
         setProfileImageView(with: radius)
         setImageChoiceButton(with: radius)
@@ -84,19 +63,19 @@ private extension ProfileViewController {
     }
 
     func setProfileImageView(with radius: CGFloat) {
-        ProfileImageView.layer.cornerRadius = radius
+        profileImageView.layer.cornerRadius = radius
     }
 
     func setImageChoiceButton(with radius: CGFloat) {
-        ProfileImageChoiceButton.layer.masksToBounds = true
-        ProfileImageChoiceButton.layer.cornerRadius = radius
-        ProfileImageChoiceButton.backgroundColor = UIColor(rgb: 0x3F78F0)
+        profileImageChoiceButton.layer.masksToBounds = true
+        profileImageChoiceButton.layer.cornerRadius = radius
+        profileImageChoiceButton.backgroundColor = UIColor(rgb: 0x3F78F0)
     }
 
     func setEditButton() {
-        EditButton.layer.cornerRadius = 10.0
-        EditButton.layer.borderWidth = 1.0
-        EditButton.layer.borderColor = UIColor.black.cgColor
+        editButton.layer.cornerRadius = 10.0
+        editButton.layer.borderWidth = 1.0
+        editButton.layer.borderColor = UIColor.black.cgColor
     }
 }
 
@@ -112,7 +91,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
-            ProfileImageView.image = image
+            profileImageView.image = image
         }
         dismiss(animated: true, completion: nil)
     }
