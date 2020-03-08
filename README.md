@@ -1,5 +1,10 @@
 #  T Messenger
 ## Versions
+#### v0.4
+```
+Add playground
+Add minor improvements (-;
+``` 
 #### v0.3
 ```
 Add ConversationsListViewController
