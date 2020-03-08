@@ -32,7 +32,7 @@ class ConversationListCell: UITableViewCell {
 extension ConversationListCell: ConfigurableView {
 
     func configure(with model: MockConversation) {
-        dateLabel.text = Utils.dateToString(model.date)
+        dateLabel.text = model.date.dateToString()
         nameLabel.text = model.name
 
         let messagesCount = model.messages?.count ?? 0

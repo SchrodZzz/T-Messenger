@@ -8,18 +8,16 @@
 
 import Foundation
 
-class Utils {
-
-    static func dateToString(_ date: Date) -> String {
+extension Date {
+    func dateToString() -> String {
         let dateFormatter = DateFormatter()
 
-        if Calendar.current.isDateInToday(date) {
+        if Calendar.current.isDateInToday(self) {
             dateFormatter.dateFormat = "HH:mm"
         } else {
             dateFormatter.dateFormat = "dd MMM"
         }
 
-        return dateFormatter.string(from: date)
+        return dateFormatter.string(from: self)
     }
-
 }
