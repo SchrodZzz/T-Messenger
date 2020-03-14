@@ -10,13 +10,14 @@ import UIKit
 
 class ConversationsListViewController: UIViewController {
 
-    //MARK: - Proporties
+    // MARK: - Proporties
+    
     @IBOutlet weak var conversationListTableView: UITableView!
 
     private var conversations: [[MockConversation]]?
-
-
-    //MARK: - Lifecycle
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +25,8 @@ class ConversationsListViewController: UIViewController {
     }
 
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension ConversationsListViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -40,12 +43,13 @@ extension ConversationsListViewController: UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ConversationListCell", for: indexPath) as! ConversationListCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ConversationListCell", for: indexPath) as? ConversationListCell
+            else { fatalError("ConversationMessageCell cannot be dequeued") }
 
         if let conversation = conversations?[indexPath.section][indexPath.row] {
             cell.configure(with: conversation)
         }
-        
+
         if indexPath.section == 0 {
             cell.layer.backgroundColor = UIColor(rgb: 0xFFEE99).cgColor
         } else {

@@ -16,7 +16,7 @@ public class Company {
         guard let developers = self.developers else { return }
         guard let manager = self.manager else { return }
         guard let ceo = self.ceo else { return }
-        if developers.count > 0 {
+        if !developers.isEmpty {
             developers[0]?.sendMessageToCEO("CEO, я хочу зарплату больше")
             print("CEO \(ceo.name ?? "?") send message \"нет, не повышу\" to developer \(developers[0]?.name ?? "?").")
             developers[0]?.sendMessageToManager("Продукт-менеджер, дай ТЗ")
@@ -27,5 +27,6 @@ public class Company {
             developers[1]?.send(message: "А вот и нет - я отправил тебе pull-request", to: developers[0]?.name ?? "")
         }
         print(" >> simulation end <<")
+        print()
     }
 }
