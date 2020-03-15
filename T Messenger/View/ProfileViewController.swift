@@ -262,6 +262,8 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     }
 }
 
+// MARK: - UITextViewDelegate
+
 extension ProfileViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         profile.aboutMeChanged = true

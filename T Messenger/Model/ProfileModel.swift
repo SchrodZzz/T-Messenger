@@ -44,15 +44,9 @@ class ProfileModel {
 
     func toDictionary() -> NSDictionary {
         let dict = NSMutableDictionary()
-        if nameChanged {
-            dict[kNameKey] = name
-        }
-        if aboutMeChanged {
-            dict[kAboutMeKey] = aboutMe
-        }
-        if imageChanged {
-            dict[kAvatarKey] = avatarImageData
-        }
+        dict[kNameKey] = name
+        dict[kAboutMeKey] = aboutMe
+        dict[kAvatarKey] = avatarImageData
         return dict
     }
 
