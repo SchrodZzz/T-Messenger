@@ -41,8 +41,9 @@ class ProfileViewController: UIViewController {
         
         readProfile()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        userNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange),
                                                name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -60,7 +61,11 @@ class ProfileViewController: UIViewController {
 
     @IBAction func editButtonTyped(_ sender: Any) {
         if editModeIsActive {
-            presentSaveTypeChoice()
+            if profile.isChanged {
+                presentSaveTypeChoice()
+            } else {
+                CustomAnimations.shakeButton(editButton)
+            }
         } else {
             changeUserInteraction(enabled: true)
         }
@@ -87,15 +92,22 @@ class ProfileViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+    // MARK: - Target Methods
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        profile.nameChanged = true
+    }
 
     // MARK: - Private Methods
 
     private func showImagePickerActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let chooseImageFromLibraryAction = UIAlertAction(title: "From photo library", style: .default, handler: { _ in
+            self.profile.imageChanged = true
             self.showImagePickerController(sourceType: .photoLibrary)
         })
         let takeImageWithCameraAction = UIAlertAction(title: "Take a photo", style: .default, handler: { _ in
+            self.profile.imageChanged = true
             self.showImagePickerController(sourceType: .camera)
         })
 
@@ -137,6 +149,7 @@ class ProfileViewController: UIViewController {
                     successAlert.dismiss(animated: true, completion: nil)
                     self.activityIndicatorView.stopAnimating()
                     self.editButton.isEnabled = true
+                    self.profile.resetTrackingBools()
                 })
                 successAlert.addAction(okAction)
                 self.present(successAlert, animated: true, completion: nil)
@@ -246,6 +259,12 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             profileImageView.image = image
         }
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfileViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        profile.aboutMeChanged = true
     }
 }
 

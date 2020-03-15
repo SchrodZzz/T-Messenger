@@ -14,9 +14,17 @@ class ProfileModel {
     private let kAboutMeKey = "aboutMe"
     private let kAvatarKey = "avatar"
 
+    var nameChanged = false
+    var aboutMeChanged = false
+    var imageChanged = false
+
     var name: String?
     var aboutMe: String?
     var avatarImageData: NSData?
+
+    var isChanged: Bool {
+        return nameChanged || aboutMeChanged || imageChanged
+    }
 
     init() {
 
@@ -36,10 +44,22 @@ class ProfileModel {
 
     func toDictionary() -> NSDictionary {
         let dict = NSMutableDictionary()
-        dict[kNameKey] = name
-        dict[kAboutMeKey] = aboutMe
-        dict[kAvatarKey] = avatarImageData
+        if nameChanged {
+            dict[kNameKey] = name
+        }
+        if aboutMeChanged {
+            dict[kAboutMeKey] = aboutMe
+        }
+        if imageChanged {
+            dict[kAvatarKey] = avatarImageData
+        }
         return dict
+    }
+
+    func resetTrackingBools() {
+        nameChanged = false
+        aboutMeChanged = false
+        imageChanged = false
     }
 
 }

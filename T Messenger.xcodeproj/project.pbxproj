@@ -24,6 +24,7 @@
 		202B3282241EA24C002B2884 /* OperationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B3281241EA24C002B2884 /* OperationDataManager.swift */; };
 		20751F1F240C0148009E5780 /* ConversationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F1E240C0148009E5780 /* ConversationsListViewController.swift */; };
 		20751F21240C0167009E5780 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F20240C0167009E5780 /* ConversationViewController.swift */; };
+		2099AACA241ECA2900B7D7B9 /* CustomAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2099AAC9241ECA2900B7D7B9 /* CustomAnimations.swift */; };
 		20CCD7B2240C1D1200C6C9A6 /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CCD7B1240C1D1200C6C9A6 /* ConfigurableView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		202B3281241EA24C002B2884 /* OperationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationDataManager.swift; sourceTree = "<group>"; };
 		20751F1E240C0148009E5780 /* ConversationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsListViewController.swift; sourceTree = "<group>"; };
 		20751F20240C0167009E5780 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		2099AAC9241ECA2900B7D7B9 /* CustomAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimations.swift; sourceTree = "<group>"; };
 		20CCD7B1240C1D1200C6C9A6 /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 				200EBDA4240C117D00D97EB5 /* Extensions.swift */,
 				200EBDA2240C0B4A00D97EB5 /* MockDataFiller.swift */,
 				20CCD7B1240C1D1200C6C9A6 /* ConfigurableView.swift */,
+				2099AAC9241ECA2900B7D7B9 /* CustomAnimations.swift */,
 				20751F23240C0183009E5780 /* Model */,
 				20751F22240C016E009E5780 /* View */,
 				201A4E9323F6715D0036B7FC /* AppDelegate.swift */,
@@ -242,6 +245,7 @@
 				20751F21240C0167009E5780 /* ConversationViewController.swift in Sources */,
 				20751F1F240C0148009E5780 /* ConversationsListViewController.swift in Sources */,
 				200EBDA5240C117D00D97EB5 /* Extensions.swift in Sources */,
+				2099AACA241ECA2900B7D7B9 /* CustomAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
