@@ -1,5 +1,9 @@
 #  T Messenger
 ## Versions
+#### v0.5
+```
+Add edit mode to profile view controller
+``` 
 #### v0.4
 ```
 Add playground

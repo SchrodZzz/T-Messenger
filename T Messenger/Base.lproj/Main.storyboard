@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="width" secondItem="aGf-g7-gI1" secondAttribute="height" multiplier="1:1" id="9gK-Cb-pj8"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gre-Eg-VaW">
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gre-Eg-VaW">
                                 <rect key="frame" x="236" y="236" width="64" height="64"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -32,22 +32,22 @@
                                 <inset key="imageEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                 <state key="normal" image="Camera"/>
                                 <connections>
-                                    <action selector="ProfileImageChoiceButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ev-5c-hGQ"/>
+                                    <action selector="profileImageChoiceButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ev-5c-hGQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пупкин Васислий" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODd-sK-9hI">
-                                <rect key="frame" x="20" y="308" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csd-oF-Ypj">
-                                <rect key="frame" x="20" y="346" width="280" height="134"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="csd-oF-Ypj">
+                                <rect key="frame" x="20" y="350" width="280" height="130"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="S4O-ee-hdo"/>
+                                </constraints>
                                 <string key="text">👨‍💻Люблю залипать в ноут 👨‍🎓Носить смешные шапочки 👨‍🏫Делать умный вид  (Scroll down👇)             For big texts: TextView &gt; Label 👀 👅</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="i5b-8q-H10"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-aV-l9R">
                                 <rect key="frame" x="20" y="488" width="280" height="40"/>
@@ -57,40 +57,56 @@
                                 </constraints>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Редактировать"/>
+                                <connections>
+                                    <action selector="editButtonTyped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f0Z-KD-awJ"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Пупкин Василий" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxI-b4-A65">
+                                <rect key="frame" x="20" y="308" width="280" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="F1j-Vy-QiP"/>
+                                </connections>
+                            </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yh4-3N-niv">
+                                <rect key="frame" x="150" y="470" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ODd-sK-9hI" secondAttribute="trailing" constant="20" id="6Si-iz-CAl"/>
                             <constraint firstItem="aGf-g7-gI1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Hc5-fj-l5t"/>
-                            <constraint firstItem="csd-oF-Ypj" firstAttribute="top" secondItem="ODd-sK-9hI" secondAttribute="bottom" constant="8" id="O2Z-2L-9Se"/>
+                            <constraint firstItem="csd-oF-Ypj" firstAttribute="leading" secondItem="CxI-b4-A65" secondAttribute="leading" id="K1V-1l-VA6"/>
+                            <constraint firstItem="csd-oF-Ypj" firstAttribute="trailing" secondItem="CxI-b4-A65" secondAttribute="trailing" id="KlK-xp-L8N"/>
+                            <constraint firstItem="yh4-3N-niv" firstAttribute="centerY" secondItem="csd-oF-Ypj" secondAttribute="bottom" id="OHy-QM-1VE"/>
                             <constraint firstItem="Gre-Eg-VaW" firstAttribute="bottom" secondItem="aGf-g7-gI1" secondAttribute="bottom" id="PDw-H7-jMD"/>
-                            <constraint firstItem="HYE-aV-l9R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="UPs-sI-9Ty"/>
+                            <constraint firstItem="HYE-aV-l9R" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="UPs-sI-9Ty"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="csd-oF-Ypj" secondAttribute="trailing" constant="20" id="Wyh-Rg-20E"/>
                             <constraint firstItem="csd-oF-Ypj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XR8-Fi-pSb"/>
-                            <constraint firstItem="ODd-sK-9hI" firstAttribute="top" secondItem="aGf-g7-gI1" secondAttribute="bottom" constant="8" id="Z0E-P4-5aP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HYE-aV-l9R" secondAttribute="trailing" constant="20" id="ZGM-uf-vgG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HYE-aV-l9R" secondAttribute="bottom" constant="20" id="Zua-zI-CrC"/>
                             <constraint firstItem="Gre-Eg-VaW" firstAttribute="trailing" secondItem="aGf-g7-gI1" secondAttribute="trailing" id="dCw-az-fmw"/>
                             <constraint firstItem="HYE-aV-l9R" firstAttribute="top" secondItem="csd-oF-Ypj" secondAttribute="bottom" constant="8" id="dff-TC-BIG"/>
+                            <constraint firstItem="yh4-3N-niv" firstAttribute="centerX" secondItem="HYE-aV-l9R" secondAttribute="centerX" id="f9Z-AM-aUl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aGf-g7-gI1" secondAttribute="trailing" constant="20" id="fGZ-LY-Uo1"/>
-                            <constraint firstItem="ODd-sK-9hI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oI6-Hr-D3F"/>
+                            <constraint firstItem="csd-oF-Ypj" firstAttribute="top" secondItem="CxI-b4-A65" secondAttribute="bottom" constant="8" id="nvE-R2-fm2"/>
                             <constraint firstItem="aGf-g7-gI1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wUt-eR-0tA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="ViewController" id="dES-bP-06b"/>
                     <connections>
-                        <outlet property="descriptionTextView" destination="csd-oF-Ypj" id="hCO-8o-n7T"/>
+                        <outlet property="aboutMeTextView" destination="csd-oF-Ypj" id="hCO-8o-n7T"/>
+                        <outlet property="activityIndicatorView" destination="yh4-3N-niv" id="ned-0S-4Qh"/>
                         <outlet property="editButton" destination="HYE-aV-l9R" id="LOK-cB-wpy"/>
                         <outlet property="profileImageChoiceButton" destination="Gre-Eg-VaW" id="sPP-tM-aYE"/>
                         <outlet property="profileImageView" destination="aGf-g7-gI1" id="yeX-4O-XTF"/>
-                        <outlet property="userNameLabel" destination="ODd-sK-9hI" id="jRc-eG-dD3"/>
+                        <outlet property="userNameTextField" destination="CxI-b4-A65" id="FTm-Py-ryb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="-260"/>
+            <point key="canvasLocation" x="367.5" y="-260.91549295774649"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u3y-8c-yV9">
