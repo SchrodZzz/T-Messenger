@@ -28,7 +28,6 @@ class FirebaseService: ConversationService {
     }
 
     func fetchChannels(completion: @escaping ([Channel]) -> Void) {
-        // ignores documents with empty 'lastActivity'
         allChannelsReference.order(by: "lastActivity", descending: true).addSnapshotListener { snapshot, error in
             if let error = error {
                 print("Error getting channels: \(error)")
@@ -45,7 +44,6 @@ class FirebaseService: ConversationService {
 
     func fetchMessages(from channel: Channel?, completion: @escaping ([Message]) -> Void) {
         self.channel = channel
-        // ignores documents with empty 'created'
         channelReference.order(by: "created").addSnapshotListener { snapshot, error in
             if let error = error {
                 print("Error getting channels: \(error)")
