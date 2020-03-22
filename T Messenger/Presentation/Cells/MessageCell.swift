@@ -11,14 +11,16 @@ import UIKit
 class MessageCell: UITableViewCell {
 
     // MARK: - Properties
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var messageContentLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var messageView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         messageView.layer.cornerRadius = 10.0
-        messageLabel.sizeToFit()
+        messageContentLabel.sizeToFit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,8 +35,10 @@ class MessageCell: UITableViewCell {
 
 extension MessageCell: ConfigurableView {
 
-    func configure(with model: MessageCellModel) {
-        messageLabel.text = model.text
+    func configure(with model: Message?) {
+        nameLabel.text = model?.senderName ?? "Unknown Sender"
+        messageContentLabel.text = model?.content ?? "Empty Content"
+        dateLabel.text = model?.created?.toString() ?? "XX:xx"
     }
 
 }

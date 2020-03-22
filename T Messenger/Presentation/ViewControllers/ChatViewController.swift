@@ -11,26 +11,98 @@ import UIKit
 class ChatViewController: UIViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var ConversationTableView: UITableView!
+    @IBOutlet weak var conversationTableView: UITableView!
+    @IBOutlet weak var messageInputTextField: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
 
-    static var massages: [String]?
-    static var name: String?
+    static var channel: Channel?
+
+    private var notificationMethods: NotificationMethods!
+    private var conversationService: ConversationService!
+    private var messages: [Message]?
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = ChatViewController.name ?? "Name"
+        notificationMethods = NotificationMethods(for: self)
+
+        conversationService = FirebaseService()
+
+        conversationService.fetchMessages(from: ChatViewController.channel) { [weak self] messages in
+            self?.messages = messages
+            self?.conversationTableView.reloadData()
+            self?.scrollToBottom()
+        }
+
+        messageInputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange),
+                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
+        self.navigationItem.title = ChatViewController.channel?.name ?? "Unknown channel name"
+
+        sendButton.layer.cornerRadius = 10.0
+    }
+
+    // MARK: - Button Actions
+
+    @IBAction func sendButtonPressed(_ sender: Any) {
+        let message = Message(created: Date(), content: messageInputTextField.text, senderName: conversationService.getUserName())
+        conversationService.send(message: message, to: ChatViewController.channel)
+        messageInputTextField.text = ""
+        changeSendButtonState(to: false)
+        dismissKeyboard()
+    }
+
+    // MARK: - Notification Methods
+
+    @objc func keyboardWillChange(_ notification: Notification) {
+        notificationMethods.keyboardWillChange(notification)
+        scrollToBottom()
+    }
+
+    // MARK: - Gesture Methods
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    // MARK: - Target Methods
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        let messageContent = messageInputTextField.text ?? ""
+        changeSendButtonState(to: !messageContent.isEmpty)
     }
 
     // MARK: - Private Methods
 
-    private func getMagic(from num: Int) -> Bool {
-        return num % 2 == 0 && num < 5
+    private func scrollToBottom() {
+        if let msgs = messages, !msgs.isEmpty {
+            self.conversationTableView.scrollToRow(at: IndexPath(row: msgs.count - 1, section: 0), at: .bottom, animated: false)
+        }
+    }
+
+    private func changeSendButtonState(to isEnabled: Bool) {
+        sendButton.isEnabled = isEnabled
+        sendButton.backgroundColor = isEnabled ? .blue : .systemGray
     }
 
 }
+
+// MARK: - UITextFieldDelegate
+
+extension ChatViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+}
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -39,16 +111,18 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ChatViewController.massages?.count ?? 0
+        return messages?.count ?? 0
     }
 
+    #warning("TODO: out Messages")
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let identifier = getMagic(from: indexPath.row) ? "inMessageCell" : "outMessageCell"
+//        let identifier = getMagic(from: indexPath.row) ? "inMessageCell" : "outMessageCell"
+        let identifier = "inMessageCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MessageCell
             else { fatalError("MessageCell cannot be dequeued") }
 
-        cell.configure(with: MessageCellModel(text: ChatViewController.massages?[indexPath.row] ?? ""))
+        cell.configure(with: messages?[indexPath.row])
 
         return cell
     }

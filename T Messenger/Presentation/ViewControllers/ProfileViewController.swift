@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 
+    private var notificationMethods: NotificationMethods!
     private var dataManager: DataManagerProtocol!
     private var profile: ProfileModel!
 
@@ -41,6 +42,8 @@ class ProfileViewController: UIViewController {
 
         readProfile()
 
+        notificationMethods = NotificationMethods(for: self)
+
         userNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
 
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
@@ -59,7 +62,7 @@ class ProfileViewController: UIViewController {
         showImagePickerActionSheet()
     }
 
-    @IBAction func editButtonTyped(_ sender: Any) {
+    @IBAction func editButtonPressed(_ sender: Any) {
         if editModeIsActive {
             if profile.isChanged {
                 presentSaveTypeChoice()
@@ -71,26 +74,16 @@ class ProfileViewController: UIViewController {
         }
     }
 
+    // MARK: - Notification Methods
+
+    @objc func keyboardWillChange(_ notification: Notification) {
+        notificationMethods.keyboardWillChange(notification)
+    }
+
     // MARK: - Gesture Methods
 
     @objc func dismissKeyboard() {
         view.endEditing(true)
-    }
-
-    // MARK: - Notification Methods
-
-    @objc func keyboardWillChange(_ notification: Notification) {
-        guard let keyboardGlobalFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        let keyboardLocalFrame = self.view.convert(keyboardGlobalFrame, from: nil)
-        let keyboardInset = max(0, self.view.bounds.height - keyboardLocalFrame.minY - self.view.safeAreaInsets.bottom)
-        self.additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardInset, right: 0)
-
-        let duration: TimeInterval = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-        let curve = (notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue ?? 0
-        let options = UIView.AnimationOptions(rawValue: curve << 16)
-        UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
     }
 
     // MARK: - Target Methods
@@ -175,6 +168,7 @@ class ProfileViewController: UIViewController {
         }
     }
 
+    #warning("TODO: fix text view scroll lock in non edit mode")
     private func changeUserInteraction(enabled: Bool) {
         editModeIsActive = enabled
         userNameTextField.isUserInteractionEnabled = enabled

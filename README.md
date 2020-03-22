@@ -1,5 +1,9 @@
 #  T Messenger
 ## Versions
+#### v0.6
+```
+Add firebase support
+``` 
 #### v0.5
 ```
 Add edit mode to profile view controller
