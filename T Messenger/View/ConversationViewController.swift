@@ -10,21 +10,22 @@ import UIKit
 
 class ConversationViewController: UIViewController {
 
-    //MARK: - Properties
+    // MARK: - Properties
     @IBOutlet weak var ConversationTableView: UITableView!
-    
-    
+
     static var massages: [String]?
     static var name: String?
 
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = ConversationViewController.name ?? "Name"
     }
 
-    //MARK: - Private Methods
+    // MARK: - Private Methods
+    
     private func getMagic(from num: Int) -> Bool {
         return num % 2 == 0 && num < 5
     }
@@ -42,14 +43,11 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: ConversationCell
 
-        if getMagic(from: indexPath.row) {
-            cell = tableView.dequeueReusableCell(withIdentifier: "inMessageCell", for: indexPath) as! ConversationCell
-        } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "outMessageCell", for: indexPath) as! ConversationCell
-        }
-        
+        let identifier = getMagic(from: indexPath.row) ? "inMessageCell" : "outMessageCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? ConversationCell
+            else { fatalError("ConversationMessageCell cannot be dequeued") }
+
         cell.configure(with: MessageCellModel(text: ConversationViewController.massages?[indexPath.row] ?? ""))
 
         return cell

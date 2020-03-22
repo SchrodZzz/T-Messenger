@@ -10,35 +10,38 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    //MARK: - Properties
+    // MARK: - Properties
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileImageChoiceButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
-    
 
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
         self.setUI()
     }
 
-    //MARK: Button Actions
+    // MARK: - Button Actions
+    
     @IBAction func ProfileImageChoiceButtonPressed(_ sender: Any) {
         print("Choose profile image. (Выберите изображение профиля).")
         showImagePickerActionSheet()
     }
     
-    //MARK: Private Methods
+    // MARK: - Private Methods
+    
     private func showImagePickerActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let chooseImageFromLibraryAction = UIAlertAction(title: "From photo library", style: .default, handler: {action in
+        let chooseImageFromLibraryAction = UIAlertAction(title: "From photo library", style: .default, handler: { _ in
             self.showImagePickerController(sourceType: .photoLibrary)
         })
-        let takeImageWithCameraAction = UIAlertAction(title: "Take a photo", style: .default, handler: { action in
+        let takeImageWithCameraAction = UIAlertAction(title: "Take a photo", style: .default, handler: { _ in
             self.showImagePickerController(sourceType: .camera)
         })
         
@@ -52,7 +55,8 @@ class ProfileViewController: UIViewController {
 
 }
 
-//MARK: - ProfileViewController UI Setups
+// MARK: - ProfileViewController UI Setups
+
 private extension ProfileViewController {
     func setUI() {
         let radius = profileImageChoiceButton.frame.size.height / 2
@@ -79,7 +83,8 @@ private extension ProfileViewController {
     }
 }
 
-//MARK: UIImagePickerControllerDelegate
+// MARK: - UIImagePickerControllerDelegate
+
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
@@ -89,15 +94,16 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             profileImageView.image = image
         }
         dismiss(animated: true, completion: nil)
     }
 }
 
-//MARK: - UIColor extension
+// MARK: - UIColor extension
+
 extension UIColor {
     convenience init(rgb: Int) {
         self.init(

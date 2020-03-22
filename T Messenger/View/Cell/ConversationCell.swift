@@ -10,11 +10,9 @@ import UIKit
 
 class ConversationCell: UITableViewCell {
     
-    //MARK: - Properties
+    // MARK: - Properties
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageView: UIView!
-    
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()

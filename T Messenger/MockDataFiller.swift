@@ -28,7 +28,7 @@ class MockDataFiller {
                 Увы, никто в моей родне
                 Не шьет мне даром фраков модных
                 И не варит обеда мне.
-                """,], date: Date(from: "01.03.2020 20:00") ?? Date(), isOnline: true, hasUnreadMessages: true),
+                """], date: Date(from: "01.03.2020 20:00") ?? Date(), isOnline: true, hasUnreadMessages: true),
                 
                 MockConversation(name: "Bob2", messages: ["""
                 Потомку предков благородных,
@@ -45,7 +45,7 @@ class MockDataFiller {
                 MockConversation(name: "Bob7", messages: ["Hello"], date: Date(from: "13.12.2016 15:22") ?? Date(), isOnline: true, hasUnreadMessages: false),
                 MockConversation(name: "Bob8", messages: ["Hello"], date: Date(from: "01.05.2016 15:22") ?? Date(), isOnline: true, hasUnreadMessages: false),
                 MockConversation(name: "Bob9", messages: ["Hello"], date: Date(from: "05.01.2016 15:22") ?? Date(), isOnline: true, hasUnreadMessages: false),
-                MockConversation(name: "Bob10", messages: ["Hello"], date: Date(from: "14.08.2016 15:22") ?? Date(), isOnline: true, hasUnreadMessages: false),
+                MockConversation(name: "Bob10", messages: ["Hello"], date: Date(from: "14.08.2016 15:22") ?? Date(), isOnline: true, hasUnreadMessages: false)
             ],
             [
                 MockConversation(name: "TomBestFriend", messages: [
@@ -63,7 +63,7 @@ class MockDataFiller {
                 Увы, никто в моей родне
                 Не шьет мне даром фраков модных
                 И не варит обеда мне.
-                """,], date: Date(from: "01.03.2020 20:00") ?? Date(), isOnline: false, hasUnreadMessages: true),
+                """], date: Date(from: "01.03.2020 20:00") ?? Date(), isOnline: false, hasUnreadMessages: true),
                 
                 MockConversation(name: "Tom2", messages: ["""
                 Потомку предков благородных,
@@ -80,7 +80,7 @@ class MockDataFiller {
                 MockConversation(name: "Tom7", messages: ["Hello"], date: Date(from: "25.09.2016 15:22") ?? Date(), isOnline: false, hasUnreadMessages: false),
                 MockConversation(name: "Tom8", messages: ["Hello"], date: Date(from: "21.03.2016 15:22") ?? Date(), isOnline: false, hasUnreadMessages: false),
                 MockConversation(name: "Tom9", messages: ["Hello"], date: Date(from: "13.01.2016 15:22") ?? Date(), isOnline: false, hasUnreadMessages: false),
-                MockConversation(name: "Tom10", messages: ["Hello"], date: Date(from: "22.02.2016 15:22") ?? Date(), isOnline: false, hasUnreadMessages: false),
+                MockConversation(name: "Tom10", messages: ["Hello"], date: Date(from: "22.02.2016 15:22") ?? Date(), isOnline: false, hasUnreadMessages: false)
             ]
         ]
     }

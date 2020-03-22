@@ -10,7 +10,7 @@
 		200EBD9E240C051400D97EB5 /* ConversationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EBD9D240C051400D97EB5 /* ConversationListCell.swift */; };
 		200EBDA1240C099600D97EB5 /* ConversationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EBDA0240C099600D97EB5 /* ConversationCellModel.swift */; };
 		200EBDA3240C0B4A00D97EB5 /* MockDataFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EBDA2240C0B4A00D97EB5 /* MockDataFiller.swift */; };
-		200EBDA5240C117D00D97EB5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EBDA4240C117D00D97EB5 /* Utils.swift */; };
+		200EBDA5240C117D00D97EB5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EBDA4240C117D00D97EB5 /* Extensions.swift */; };
 		200EBDA7240C17D600D97EB5 /* MessageCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EBDA6240C17D600D97EB5 /* MessageCellModel.swift */; };
 		200EBDA9240C1B3000D97EB5 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EBDA8240C1B3000D97EB5 /* ConversationCell.swift */; };
 		201A4E9423F6715D0036B7FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A4E9323F6715D0036B7FC /* AppDelegate.swift */; };
@@ -27,7 +27,7 @@
 		200EBD9D240C051400D97EB5 /* ConversationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListCell.swift; sourceTree = "<group>"; };
 		200EBDA0240C099600D97EB5 /* ConversationCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCellModel.swift; sourceTree = "<group>"; };
 		200EBDA2240C0B4A00D97EB5 /* MockDataFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataFiller.swift; sourceTree = "<group>"; };
-		200EBDA4240C117D00D97EB5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		200EBDA4240C117D00D97EB5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		200EBDA6240C17D600D97EB5 /* MessageCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellModel.swift; sourceTree = "<group>"; };
 		200EBDA8240C1B3000D97EB5 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
 		201A4E9023F6715D0036B7FC /* T Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +39,6 @@
 		201A4EA123F671610036B7FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20751F1E240C0148009E5780 /* ConversationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsListViewController.swift; sourceTree = "<group>"; };
 		20751F20240C0167009E5780 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
-		20BA4B6423F9304100B43EB5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		20CCD7B1240C1D1200C6C9A6 /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,7 +56,6 @@
 		201A4E8723F6715D0036B7FC = {
 			isa = PBXGroup;
 			children = (
-				20BA4B6423F9304100B43EB5 /* README.md */,
 				201A4E9223F6715D0036B7FC /* T Messenger */,
 				201A4E9123F6715D0036B7FC /* Products */,
 			);
@@ -74,7 +72,7 @@
 		201A4E9223F6715D0036B7FC /* T Messenger */ = {
 			isa = PBXGroup;
 			children = (
-				200EBDA4240C117D00D97EB5 /* Utils.swift */,
+				200EBDA4240C117D00D97EB5 /* Extensions.swift */,
 				200EBDA2240C0B4A00D97EB5 /* MockDataFiller.swift */,
 				20CCD7B1240C1D1200C6C9A6 /* ConfigurableView.swift */,
 				20751F23240C0183009E5780 /* Model */,
@@ -127,6 +125,7 @@
 				201A4E8C23F6715D0036B7FC /* Sources */,
 				201A4E8D23F6715D0036B7FC /* Frameworks */,
 				201A4E8E23F6715D0036B7FC /* Resources */,
+				2044E6FF241CF04500789861 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -183,6 +182,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2044E6FF241CF04500789861 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		201A4E8C23F6715D0036B7FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -198,7 +217,7 @@
 				20CCD7B2240C1D1200C6C9A6 /* ConfigurableView.swift in Sources */,
 				20751F21240C0167009E5780 /* ConversationViewController.swift in Sources */,
 				20751F1F240C0148009E5780 /* ConversationsListViewController.swift in Sources */,
-				200EBDA5240C117D00D97EB5 /* Utils.swift in Sources */,
+				200EBDA5240C117D00D97EB5 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +368,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "Tinkoff.T-Messenger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -369,7 +388,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "Tinkoff.T-Messenger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

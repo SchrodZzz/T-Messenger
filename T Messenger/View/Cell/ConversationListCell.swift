@@ -10,11 +10,10 @@ import UIKit
 
 class ConversationListCell: UITableViewCell {
 
-    //MARK: - Properties
+    // MARK: - Properties
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var lastMessageLabel: UILabel!
-
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +31,7 @@ class ConversationListCell: UITableViewCell {
 extension ConversationListCell: ConfigurableView {
 
     func configure(with model: MockConversation) {
-        dateLabel.text = Utils.dateToString(model.date)
+        dateLabel.text = model.date.dateToString()
         nameLabel.text = model.name
 
         let messagesCount = model.messages?.count ?? 0
