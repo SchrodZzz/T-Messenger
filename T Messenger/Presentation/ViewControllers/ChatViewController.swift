@@ -48,6 +48,10 @@ class ChatViewController: UIViewController {
         sendButton.layer.cornerRadius = 10.0
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     // MARK: - Button Actions
 
     @IBAction func sendButtonPressed(_ sender: Any) {
@@ -75,7 +79,7 @@ class ChatViewController: UIViewController {
 
     @objc func textFieldDidChange(_ textField: UITextField) {
         let messageContent = messageInputTextField.text ?? ""
-        changeSendButtonState(to: !messageContent.isEmpty)
+        changeSendButtonState(to: !messageContent.filter({ $0 != " " }).isEmpty)
     }
 
     // MARK: - Private Methods
@@ -89,6 +93,13 @@ class ChatViewController: UIViewController {
     private func changeSendButtonState(to isEnabled: Bool) {
         sendButton.isEnabled = isEnabled
         sendButton.backgroundColor = isEnabled ? .blue : .systemGray
+    }
+
+    private func senderIsUser(senderName: String) -> Bool {
+        if let userName = conversationService.getUserName() {
+            return senderName == userName
+        }
+        return false
     }
 
 }
@@ -114,11 +125,10 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         return messages?.count ?? 0
     }
 
-    #warning("TODO: out Messages")
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-//        let identifier = getMagic(from: indexPath.row) ? "inMessageCell" : "outMessageCell"
-        let identifier = "inMessageCell"
+        let identifier = senderIsUser(senderName: messages?[indexPath.row].senderName ?? "") ? "outMessageCell" : "inMessageCell"
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MessageCell
             else { fatalError("MessageCell cannot be dequeued") }
 

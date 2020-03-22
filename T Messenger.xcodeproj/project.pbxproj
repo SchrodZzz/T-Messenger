@@ -171,7 +171,6 @@
 				20751F23240C0183009E5780 /* Model */,
 				2050A43324267B0A0028318C /* Conversation */,
 				2050A438242746DB0028318C /* Extensions.swift */,
-				2050A43A242758B30028318C /* NotificationMethods.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -189,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				2099AAC9241ECA2900B7D7B9 /* CustomAnimations.swift */,
+				2050A43A242758B30028318C /* NotificationMethods.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

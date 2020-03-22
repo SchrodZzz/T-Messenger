@@ -37,8 +37,12 @@ extension MessageCell: ConfigurableView {
 
     func configure(with model: Message?) {
         nameLabel.text = model?.senderName ?? "Unknown Sender"
-        messageContentLabel.text = model?.content ?? "Empty Content"
+        messageContentLabel.text = model?.content ?? "'nil message'"
         dateLabel.text = model?.created?.toString() ?? "XX:xx"
+
+        if (messageContentLabel.text ?? "").filter({ $0 != " " }).isEmpty {
+            messageContentLabel.text = "'Empty message'"
+        }
     }
 
 }

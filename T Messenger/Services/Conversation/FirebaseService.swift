@@ -9,10 +9,9 @@
 import Foundation
 import Firebase
 
-#warning("TODO: check fetching on two devices")
-
 class FirebaseService: ConversationService {
     private var channel: Channel?
+    private var userName: String?
 
     private lazy var db = Firestore.firestore()
     private lazy var allChannelsReference = db.collection("channels")
@@ -21,8 +20,16 @@ class FirebaseService: ConversationService {
         return db.collection("channels").document(channelIdentifier).collection("messages")
     }()
 
+    init() {
+        GCDDataManager().read { model in
+            self.userName = model?.name ?? "Unknown user"
+        }
+        channel = nil
+    }
+
     func fetchChannels(completion: @escaping ([Channel]) -> Void) {
-        allChannelsReference.addSnapshotListener { snapshot, error in
+        // ignores documents with empty 'lastActivity'
+        allChannelsReference.order(by: "lastActivity", descending: true).addSnapshotListener { snapshot, error in
             if let error = error {
                 print("Error getting channels: \(error)")
             }
@@ -31,15 +38,15 @@ class FirebaseService: ConversationService {
                 for doc in documents {
                     channels.append(Channel(identifier: doc.documentID, dic: doc.data()))
                 }
-                completion(channels.sorted(by: { $0.lastActivity ?? Date() > $1.lastActivity ?? Date() }))
+                completion(channels)
             }
         }
     }
 
-    #warning("TODO: fix sort for same minute messages")
     func fetchMessages(from channel: Channel?, completion: @escaping ([Message]) -> Void) {
         self.channel = channel
-        channelReference.addSnapshotListener { snapshot, error in
+        // ignores documents with empty 'created'
+        channelReference.order(by: "created").addSnapshotListener { snapshot, error in
             if let error = error {
                 print("Error getting channels: \(error)")
             }
@@ -48,7 +55,7 @@ class FirebaseService: ConversationService {
                 for doc in documents {
                     messages.append(Message(senderId: doc.documentID, dic: doc.data()))
                 }
-                completion(messages.sorted(by: { $0.created ?? Date() < $1.created ?? Date() }))
+                completion(messages)
             }
         }
     }
@@ -63,7 +70,7 @@ class FirebaseService: ConversationService {
     }
 
     func getUserName() -> String? {
-        return "Andrey"
+        return userName
     }
 
 }

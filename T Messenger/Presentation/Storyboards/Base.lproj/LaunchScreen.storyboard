@@ -39,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TinkoffLogo" width="60" height="60"/>
+        <image name="TinkoffLogo" width="500" height="412.5"/>
     </resources>
 </document>

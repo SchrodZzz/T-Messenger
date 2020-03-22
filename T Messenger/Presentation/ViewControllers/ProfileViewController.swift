@@ -25,8 +25,6 @@ class ProfileViewController: UIViewController {
     private var dataManager: DataManagerProtocol!
     private var profile: ProfileModel!
 
-    private let profileFileName = "Profile.plist"
-
     private var editModeIsActive = false
 
     // MARK: - Lifecycle
@@ -113,7 +111,7 @@ class ProfileViewController: UIViewController {
     }
 
     private func readProfile() {
-        dataManager = OperationDataManager(fileName: profileFileName) // gcd is also available
+        dataManager = OperationDataManager() // gcd is also available
         dataManager.read { profile in
             if let profile = profile {
                 self.profile = profile
@@ -168,11 +166,10 @@ class ProfileViewController: UIViewController {
         }
     }
 
-    #warning("TODO: fix text view scroll lock in non edit mode")
     private func changeUserInteraction(enabled: Bool) {
         editModeIsActive = enabled
         userNameTextField.isUserInteractionEnabled = enabled
-        aboutMeTextView.isUserInteractionEnabled = enabled
+        aboutMeTextView.isEditable = enabled
         userImageChoiceButton.isUserInteractionEnabled = enabled
         userImageChoiceButton.isHidden = !enabled
 
@@ -183,12 +180,12 @@ class ProfileViewController: UIViewController {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let viaGCD = UIAlertAction(title: "via GCD", style: .default, handler: { _ in
             self.collectProfileData()
-            self.dataManager = GCDDataManager(fileName: self.profileFileName)
+            self.dataManager = GCDDataManager()
             self.saveProfile()
         })
         let viaOperation = UIAlertAction(title: "via Operation", style: .default, handler: { _ in
             self.collectProfileData()
-            self.dataManager = OperationDataManager(fileName: self.profileFileName)
+            self.dataManager = OperationDataManager()
             self.saveProfile()
         })
 

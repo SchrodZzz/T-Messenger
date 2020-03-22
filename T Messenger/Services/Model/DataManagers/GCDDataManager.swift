@@ -12,7 +12,7 @@ class GCDDataManager: DataManagerProtocol {
 
     private var fileName: String
 
-    init(fileName: String) {
+    init(fileName: String = "Profile.plist") {
         let dir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         self.fileName = ((dir ?? "") as NSString).appendingPathComponent(fileName)
     }

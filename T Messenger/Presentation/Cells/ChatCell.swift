@@ -36,18 +36,15 @@ extension ChatCell: ConfigurableView {
         nameLabel.text = model.name ?? "Unknown Name"
         lastMessageDateLabel.text = model.lastActivity?.toString() ?? "XX:xx"
 
-        if let lastMessageContent = model.lastMessage, !lastMessageContent.isEmpty {
-            lastMessageContentLabel.text = lastMessageContent
+        if let lastMessageContent = model.lastMessage {
+            if !lastMessageContent.isEmpty {
+                lastMessageContentLabel.text = lastMessageContent
+            } else {
+                lastMessageContentLabel.text = "'Empty message'"
+            }
         } else {
             lastMessageContentLabel.text = "No messages yet"
         }
-
-        #warning("TODO: wait for 'registration' server implementation")
-//        if model.hasUnreadMessages {
-//            lastMessageBodyLabel.font = UIFont.boldSystemFont(ofSize: 16)
-//        } else {
-//            lastMessageBodyLabel.font = UIFont.systemFont(ofSize: 16)
-//        }
 
     }
 
