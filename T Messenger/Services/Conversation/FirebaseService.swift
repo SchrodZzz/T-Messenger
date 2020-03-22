@@ -66,7 +66,7 @@ class FirebaseService: ConversationService {
     }
 
     func create(channel: Channel) {
-        allChannelsReference.addDocument(data: channel.nameToDic)
+        allChannelsReference.addDocument(data: channel.toDic)
     }
 
     func getUserName() -> String? {

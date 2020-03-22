@@ -77,11 +77,12 @@ struct Channel {
         self.name = name
         self.identifier = nil
         self.lastMessage = nil
-        self.lastActivity = nil
+        self.lastActivity = Date()
     }
 
-    var nameToDic: [String: Any] {
-        return ["name": name ?? ""]
+    var toDic: [String: Any] {
+        return ["name": name ?? "",
+                "lastActivity": Timestamp(date: lastActivity ?? Date())]
     }
 }
 
