@@ -16,6 +16,8 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
 
     static var channel: Channel?
+    
+    private let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
 
     private var notificationMethods: NotificationMethods!
     private var conversationService: ConversationService!
@@ -55,7 +57,7 @@ class ChatViewController: UIViewController {
     // MARK: - Button Actions
 
     @IBAction func sendButtonPressed(_ sender: Any) {
-        let message = Message(created: Date(), content: messageInputTextField.text, senderName: conversationService.getUserName())
+        let message = Message(created: Date(), content: messageInputTextField.text, senderName: conversationService.getUserName(), senderId: deviceId)
         conversationService.send(message: message, to: ChatViewController.channel)
         messageInputTextField.text = ""
         changeSendButtonState(to: false)
@@ -95,11 +97,8 @@ class ChatViewController: UIViewController {
         sendButton.backgroundColor = isEnabled ? .blue : .systemGray
     }
 
-    private func senderIsUser(senderName: String) -> Bool {
-        if let userName = conversationService.getUserName() {
-            return senderName == userName
-        }
-        return false
+    private func senderIsUser(senderId: String) -> Bool {
+        return senderId == deviceId
     }
 
 }
@@ -127,7 +126,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let identifier = senderIsUser(senderName: messages?[indexPath.row].senderName ?? "") ? "outMessageCell" : "inMessageCell"
+        let identifier = senderIsUser(senderId: messages?[indexPath.row].senderId ?? "") ? "outMessageCell" : "inMessageCell"
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MessageCell
             else { fatalError("MessageCell cannot be dequeued") }

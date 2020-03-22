@@ -15,18 +15,18 @@ struct Message {
     let senderId: String?
     let senderName: String?
 
-    init(senderId: String, dic: [String: Any]) {
-        self.senderId = senderId
+    init(from dic: [String: Any]) {
+        self.senderId = dic["senderID"] as? String
         self.senderName = dic["senderName"] as? String
         self.content = dic["content"] as? String
         self.created = (dic["created"] as? Timestamp)?.dateValue()
     }
 
-    init(created: Date, content: String?, senderName: String?) {
+    init(created: Date, content: String?, senderName: String?, senderId: String?) {
         self.created = created
         self.content = content
         self.senderName = senderName
-        self.senderId = nil
+        self.senderId = senderId
     }
 
     var toDict: [String: Any] {

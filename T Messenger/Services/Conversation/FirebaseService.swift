@@ -51,7 +51,7 @@ class FirebaseService: ConversationService {
             if let documents = snapshot?.documents {
                 var messages: [Message] = []
                 for doc in documents {
-                    messages.append(Message(senderId: doc.documentID, dic: doc.data()))
+                    messages.append(Message(from: doc.data()))
                 }
                 completion(messages)
             }
