@@ -1,7 +1,7 @@
 import Foundation
 
 public class Company {
-    public weak var manager: ProductManager?
+    public var manager: ProductManager?
     public weak var ceo: CEO?
     public var developers: [Developer?]?
 

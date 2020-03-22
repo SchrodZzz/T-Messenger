@@ -1,5 +1,17 @@
 import UIKit
 
+func createCompany() -> Company {
+    let ceo = CEO()
+    let developers: [Developer] = [
+        Developer(name: "dev 1"),
+        Developer(name: "dev 2")
+    ]
+    let productManager = ProductManager(ceo: ceo, developers: developers)
+    
+    let company = Company(manager: productManager, ceo: ceo, developers: developers)
+    return company
+}
+
 var developer1: Developer? = Developer()
 var developer2: Developer? = Developer()
 var productManager: ProductManager? = ProductManager()
