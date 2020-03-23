@@ -79,6 +79,13 @@ struct Channel {
         self.lastMessage = nil
         self.lastActivity = nil
     }
+    
+    init(channel: Channel?, identifier: String?) {
+        self.name = channel?.name
+        self.identifier = identifier
+        self.lastMessage = channel?.lastMessage
+        self.lastActivity = channel?.lastActivity
+    }
 
     var nameToDic: [String: Any] {
         return ["name": name ?? ""]

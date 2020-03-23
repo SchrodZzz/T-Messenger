@@ -57,7 +57,7 @@ class ChatViewController: UIViewController {
     // MARK: - Button Actions
 
     @IBAction func sendButtonPressed(_ sender: Any) {
-        let message = Message(created: Date(), content: messageInputTextField.text, senderName: conversationService.getUserName(), senderId: deviceId)
+        let message = Message(content: messageInputTextField.text, senderName: conversationService.getUserName())
         conversationService.send(message: message, to: ChatViewController.channel)
         messageInputTextField.text = ""
         changeSendButtonState(to: false)

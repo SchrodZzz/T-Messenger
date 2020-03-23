@@ -22,11 +22,11 @@ struct Message {
         self.created = (dic["created"] as? Timestamp)?.dateValue()
     }
 
-    init(created: Date, content: String?, senderName: String?, senderId: String?) {
-        self.created = created
+    init(content: String?, senderName: String?) {
+        self.created = Date()
         self.content = content
         self.senderName = senderName
-        self.senderId = senderId
+        self.senderId = UIDevice.current.identifierForVendor?.uuidString
     }
 
     var toDict: [String: Any] {

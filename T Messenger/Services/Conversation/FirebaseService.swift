@@ -64,7 +64,9 @@ class FirebaseService: ConversationService {
     }
 
     func create(channel: Channel) {
-        allChannelsReference.addDocument(data: channel.nameToDic)
+        let id = allChannelsReference.addDocument(data: channel.nameToDic).documentID
+        self.channel = Channel(channel: channel, identifier: id)
+        send(message: Message(content: "Hello everyone!", senderName: getUserName()), to: self.channel)
     }
 
     func getUserName() -> String? {
