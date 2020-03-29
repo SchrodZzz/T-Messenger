@@ -14,6 +14,11 @@
 		201A4E9B23F6715D0036B7FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201A4E9923F6715D0036B7FC /* Main.storyboard */; };
 		201A4E9D23F671610036B7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 201A4E9C23F671610036B7FC /* Assets.xcassets */; };
 		201A4EA023F671610036B7FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201A4E9E23F671610036B7FC /* LaunchScreen.storyboard */; };
+		201BAE7C24307E8600217B1A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE7B24307E8600217B1A /* StorageManager.swift */; };
+		201BAE7E24307E9100217B1A /* StorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE7D24307E9100217B1A /* StorageManagerProtocol.swift */; };
+		201BAE832430A61E00217B1A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE812430A61E00217B1A /* Model.xcdatamodeld */; };
+		201BAE852431043700217B1A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE842431043700217B1A /* CoreDataStack.swift */; };
+		201BAE892431319A00217B1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE882431319A00217B1A /* User.swift */; };
 		202B327B241E9F83002B2884 /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B327A241E9F83002B2884 /* DataManagerProtocol.swift */; };
 		202B327E241EA15C002B2884 /* GCDDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B327D241EA15C002B2884 /* GCDDataManager.swift */; };
 		202B3280241EA1A3002B2884 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B327F241EA1A3002B2884 /* ProfileModel.swift */; };
@@ -43,6 +48,11 @@
 		201A4E9C23F671610036B7FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		201A4E9F23F671610036B7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		201A4EA123F671610036B7FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		201BAE7B24307E8600217B1A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		201BAE7D24307E9100217B1A /* StorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerProtocol.swift; sourceTree = "<group>"; };
+		201BAE822430A61E00217B1A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		201BAE842431043700217B1A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		201BAE882431319A00217B1A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		202B327A241E9F83002B2884 /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
 		202B327D241EA15C002B2884 /* GCDDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDDataManager.swift; sourceTree = "<group>"; };
 		202B327F241EA1A3002B2884 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -102,6 +112,16 @@
 			path = "T Messenger";
 			sourceTree = "<group>";
 		};
+		201BAE7A2430760F00217B1A /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				201BAE7D24307E9100217B1A /* StorageManagerProtocol.swift */,
+				201BAE7B24307E8600217B1A /* StorageManager.swift */,
+				201BAE842431043700217B1A /* CoreDataStack.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
 		202B327C241EA124002B2884 /* DataManagers */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +154,13 @@
 		20751F23240C0183009E5780 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				201BAE7A2430760F00217B1A /* StorageManager */,
 				202B327C241EA124002B2884 /* DataManagers */,
+				201BAE812430A61E00217B1A /* Model.xcdatamodeld */,
 				202B327F241EA1A3002B2884 /* ProfileModel.swift */,
 				2050A42C242678360028318C /* Channels.swift */,
 				2050A4312426788F0028318C /* Message.swift */,
+				201BAE882431319A00217B1A /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -370,15 +393,20 @@
 				2050A43724267B3B0028318C /* FirebaseService.swift in Sources */,
 				2050A42D242678360028318C /* Channels.swift in Sources */,
 				201A4E9423F6715D0036B7FC /* AppDelegate.swift in Sources */,
+				201BAE7C24307E8600217B1A /* StorageManager.swift in Sources */,
+				201BAE7E24307E9100217B1A /* StorageManagerProtocol.swift in Sources */,
 				202B327E241EA15C002B2884 /* GCDDataManager.swift in Sources */,
 				200EBDA9240C1B3000D97EB5 /* MessageCell.swift in Sources */,
 				2050A43B242758B30028318C /* NotificationMethods.swift in Sources */,
 				200EBD9E240C051400D97EB5 /* ChatCell.swift in Sources */,
 				20CCD7B2240C1D1200C6C9A6 /* ConfigurableView.swift in Sources */,
 				202B3282241EA24C002B2884 /* OperationDataManager.swift in Sources */,
+				201BAE852431043700217B1A /* CoreDataStack.swift in Sources */,
+				201BAE832430A61E00217B1A /* Model.xcdatamodeld in Sources */,
 				20751F21240C0167009E5780 /* ChatViewController.swift in Sources */,
 				20751F1F240C0148009E5780 /* AllChatsViewController.swift in Sources */,
 				2099AACA241ECA2900B7D7B9 /* CustomAnimations.swift in Sources */,
+				201BAE892431319A00217B1A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +609,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		201BAE812430A61E00217B1A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				201BAE822430A61E00217B1A /* Model.xcdatamodel */,
+			);
+			currentVersion = 201BAE822430A61E00217B1A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 201A4E8823F6715D0036B7FC /* Project object */;
 }

@@ -22,9 +22,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 
     private var notificationMethods: NotificationMethods!
-    private var dataManager: DataManagerProtocol!
-    private var profile: ProfileModel!
+    private var storageManager: StorageManagerProtocol!
+    private var profile: User!
 
+    private var profileIsChanged = false
     private var editModeIsActive = false
 
     // MARK: - Lifecycle
@@ -37,10 +38,11 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        storageManager = StorageManager()
+        notificationMethods = NotificationMethods(for: self)
 
         readProfile()
-
-        notificationMethods = NotificationMethods(for: self)
 
         userNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
 
@@ -62,8 +64,8 @@ class ProfileViewController: UIViewController {
 
     @IBAction func editButtonPressed(_ sender: Any) {
         if editModeIsActive {
-            if profile.isChanged {
-                presentSaveTypeChoice()
+            if profileIsChanged {
+                saveProfile()
             } else {
                 CustomAnimations.shakeButton(profileEditButton)
             }
@@ -86,7 +88,7 @@ class ProfileViewController: UIViewController {
 
     // MARK: - Target Methods
     @objc func textFieldDidChange(_ textField: UITextField) {
-        profile.isChanged = true
+        profileIsChanged = true
     }
 
     // MARK: - Private Methods
@@ -94,11 +96,11 @@ class ProfileViewController: UIViewController {
     private func showImagePickerActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let chooseImageFromLibraryAction = UIAlertAction(title: "From photo library", style: .default, handler: { _ in
-            self.profile.isChanged = true
+            self.profileIsChanged = true
             self.showImagePickerController(sourceType: .photoLibrary)
         })
         let takeImageWithCameraAction = UIAlertAction(title: "Take a photo", style: .default, handler: { _ in
-            self.profile.isChanged = true
+            self.profileIsChanged = true
             self.showImagePickerController(sourceType: .camera)
         })
 
@@ -111,20 +113,17 @@ class ProfileViewController: UIViewController {
     }
 
     private func readProfile() {
-        dataManager = OperationDataManager() // gcd is also available
-        dataManager.read { profile in
+        storageManager.loadProfile { profile in
             if let profile = profile {
                 self.profile = profile
                 self.userNameTextField.text = profile.name
                 self.aboutMeTextView.text = profile.aboutMe
-                let data = self.profile.avatarImageData as Data?
+                let data = self.profile.avatar as Data?
                 if let data = data, let image = UIImage(data: data) {
                     self.userImageView.image = image
                 } else {
                     self.userImageView.image = UIImage(named: "Placeholder")
                 }
-            } else {
-                self.profile = ProfileModel()
             }
         }
     }
@@ -132,22 +131,23 @@ class ProfileViewController: UIViewController {
     private func saveProfile() {
         activityIndicatorView.startAnimating()
         profileEditButton.isEnabled = false
+        
+//        collectProfileData()
 
-        dataManager.save(profile) { result in
-            switch result {
-            case true:
+        storageManager.saveProfile { error in
+            if error == nil {
                 let successAlert = UIAlertController(title: nil, message: "Данные сохранены", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
                     self.changeUserInteraction(enabled: false)
                     successAlert.dismiss(animated: true, completion: nil)
                     self.activityIndicatorView.stopAnimating()
                     self.profileEditButton.isEnabled = true
-                    self.profile.isChanged = false
+                    self.profileIsChanged = false
                 })
                 successAlert.addAction(okAction)
                 self.present(successAlert, animated: true, completion: nil)
 
-            case false:
+            } else {
                 let failureAlert = UIAlertController(title: "Ошибка", message: "Не удалось сохранить данные", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
                     self.changeUserInteraction(enabled: false)
@@ -176,33 +176,12 @@ class ProfileViewController: UIViewController {
         profileEditButton.setTitle(editModeIsActive ? "Сохранить" : "Редактировать", for: .normal)
     }
 
-    private func presentSaveTypeChoice() {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let viaGCD = UIAlertAction(title: "via GCD", style: .default, handler: { _ in
-            self.collectProfileData()
-            self.dataManager = GCDDataManager()
-            self.saveProfile()
-        })
-        let viaOperation = UIAlertAction(title: "via Operation", style: .default, handler: { _ in
-            self.collectProfileData()
-            self.dataManager = OperationDataManager()
-            self.saveProfile()
-        })
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        actionSheet.addAction(viaGCD)
-        actionSheet.addAction(viaOperation)
-        actionSheet.addAction(cancelAction)
-
-        present(actionSheet, animated: true, completion: nil)
-    }
-
     private func collectProfileData() {
-        profile = ProfileModel()
+        profile = User()
         profile.name = userNameTextField.text
         profile.aboutMe = aboutMeTextView.text
         if let image = userImageView.image {
-            profile.avatarImageData = image.pngData() as NSData?
+            profile.avatar = image.pngData() as Data?
         }
     }
 
@@ -244,7 +223,14 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         imagePickerController.delegate = self
         imagePickerController.sourceType = sourceType
         imagePickerController.allowsEditing = true
-        present(imagePickerController, animated: true, completion: nil)
+        if sourceType == .camera && !UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let alert = UIAlertController(title: "Камера не обнаружена", message: "На вашем устройстве не обнаружена камера", preferredStyle: .alert)
+            let result = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(result)
+            present(alert, animated: true, completion: nil)
+        } else {
+            present(imagePickerController, animated: true, completion: nil)
+        }
     }
 
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
@@ -259,7 +245,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension ProfileViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        profile.isChanged = true
+        profileIsChanged = true
     }
 }
 
