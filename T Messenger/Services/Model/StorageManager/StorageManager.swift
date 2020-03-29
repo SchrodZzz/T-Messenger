@@ -14,7 +14,6 @@ class StorageManager: StorageManagerProtocol {
 
     func loadProfile(completion: @escaping (User?) -> Void) {
         User.getProfile(in: coreDataStack.mainContext) { (profile) in
-            print("123")
             DispatchQueue.main.async {
                 completion(profile)
             }

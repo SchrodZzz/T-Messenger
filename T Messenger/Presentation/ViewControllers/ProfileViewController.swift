@@ -132,7 +132,7 @@ class ProfileViewController: UIViewController {
         activityIndicatorView.startAnimating()
         profileEditButton.isEnabled = false
         
-//        collectProfileData()
+        collectProfileData()
 
         storageManager.saveProfile { error in
             if error == nil {
@@ -177,7 +177,6 @@ class ProfileViewController: UIViewController {
     }
 
     private func collectProfileData() {
-        profile = User()
         profile.name = userNameTextField.text
         profile.aboutMe = aboutMeTextView.text
         if let image = userImageView.image {

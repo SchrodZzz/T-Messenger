@@ -1,5 +1,9 @@
 #  T Messenger
 ## Versions
+#### v0.7
+```
+Add coredata to profileVC
+``` 
 #### v0.6
 ```
 Add firebase support
