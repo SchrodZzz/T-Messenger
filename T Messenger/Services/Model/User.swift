@@ -16,9 +16,7 @@ extension User {
     }
 
     static func insertProfile(in context: NSManagedObjectContext) -> User? {
-        guard let profile = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as? User else {
-            return nil
-        }
+        guard let profile = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as? User else { return nil }
         profile.name = UIDevice.current.name
         profile.avatar = UIImage(named: "Placeholder")?.pngData()
         profile.aboutMe = "No description was provided"

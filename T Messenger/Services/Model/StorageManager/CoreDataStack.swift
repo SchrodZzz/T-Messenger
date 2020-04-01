@@ -70,13 +70,10 @@ class CoreDataStack {
                     print(error.localizedDescription)
                     completion(error)
                 }
-
-                if let parent = context.parent {
-                    self.performSave(context: parent, completion: completion)
-                } else {
-                    completion(nil)
-                }
-
+            }
+            
+            if let parent = context.parent {
+                self.performSave(context: parent, completion: completion)
             } else {
                 completion(nil)
             }
