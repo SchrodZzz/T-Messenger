@@ -1,8 +1,12 @@
 #  T Messenger
 ## Versions
+#### v0.8
+```
+Add CoreData support for channels and messages
+``` 
 #### v0.7
 ```
-Add coredata to profileVC
+Add CoreData to profileVC
 ``` 
 #### v0.6
 ```
