@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ChatViewController: UIViewController {
 
@@ -15,13 +16,15 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var messageInputTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
 
-    static var channel: Channel?
-    
+    static var channel: ChannelStruct?
+
     private let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
+
+    private var fetchedResultsController: NSFetchedResultsController<Message>!
 
     private var notificationMethods: NotificationMethods!
     private var conversationService: ConversationService!
-    private var messages: [Message]?
+    private var storageManager: StorageManagerProtocol!
 
     // MARK: - Lifecycle
 
@@ -29,13 +32,20 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
 
         notificationMethods = NotificationMethods(for: self)
-
         conversationService = FirebaseService()
+        storageManager = StorageManager()
 
-        conversationService.fetchMessages(from: ChatViewController.channel) { [weak self] messages in
-            self?.messages = messages
-            self?.conversationTableView.reloadData()
+        storageManager.fetchMessages(from: ChatViewController.channel) { [weak self] error in
+            print("fetchMessages : \(error?.localizedDescription ?? "OK")")
             self?.scrollToBottom()
+        }
+
+        fetchedResultsController = storageManager.getFetchedResultsController(from: ChatViewController.channel)
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("Can't fetch from current context")
         }
 
         messageInputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
@@ -57,7 +67,7 @@ class ChatViewController: UIViewController {
     // MARK: - Button Actions
 
     @IBAction func sendButtonPressed(_ sender: Any) {
-        let message = Message(content: messageInputTextField.text, senderName: conversationService.getUserName())
+        let message = MessageStruct(content: messageInputTextField.text, senderName: conversationService.getUserName())
         conversationService.send(message: message, to: ChatViewController.channel)
         messageInputTextField.text = ""
         changeSendButtonState(to: false)
@@ -68,7 +78,6 @@ class ChatViewController: UIViewController {
 
     @objc func keyboardWillChange(_ notification: Notification) {
         notificationMethods.keyboardWillChange(notification)
-        scrollToBottom()
     }
 
     // MARK: - Gesture Methods
@@ -87,9 +96,9 @@ class ChatViewController: UIViewController {
     // MARK: - Private Methods
 
     private func scrollToBottom() {
-        if let msgs = messages, !msgs.isEmpty {
-            self.conversationTableView.scrollToRow(at: IndexPath(row: msgs.count - 1, section: 0), at: .bottom, animated: false)
-        }
+        let messageCount = tableView(conversationTableView, numberOfRowsInSection: 0) - 1
+        guard messageCount > 0 else { return }
+        self.conversationTableView.scrollToRow(at: IndexPath(row: messageCount, section: 0), at: .bottom, animated: false)
     }
 
     private func changeSendButtonState(to isEnabled: Bool) {
@@ -117,23 +126,59 @@ extension ChatViewController: UITextFieldDelegate {
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fetchedResultsController.sections?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages?.count ?? 0
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let identifier = senderIsUser(senderId: messages?[indexPath.row].senderId ?? "") ? "outMessageCell" : "inMessageCell"
+        let message = fetchedResultsController.object(at: indexPath)
+
+        let identifier = senderIsUser(senderId: message.senderId ?? "") ? "outMessageCell" : "inMessageCell"
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MessageCell
             else { fatalError("MessageCell cannot be dequeued") }
 
-        cell.configure(with: messages?[indexPath.row])
+        cell.configure(with: message)
 
         return cell
     }
 
+}
+
+// MARK: - NSFetchedResultsControllerDelegate
+
+extension ChatViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        conversationTableView.beginUpdates()
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        conversationTableView.endUpdates()
+        scrollToBottom()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any,
+                    at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
+        guard let newIndexPath = newIndexPath else {
+            print("FetchedResultsController can't update object")
+            return
+        }
+
+        if type == .insert {
+            conversationTableView.insertRows(at: [newIndexPath], with: .none)
+        }
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+
+        if type == .insert {
+            conversationTableView.insertSections(IndexSet(integer: sectionIndex), with: .none)
+        }
+    }
 }

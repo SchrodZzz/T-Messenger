@@ -7,8 +7,18 @@
 //
 
 import Foundation
+import CoreData
 
 protocol StorageManagerProtocol {
     func loadProfile(completion: @escaping (User?) -> Void)
-    func saveProfile(completion: @escaping (Error?) -> Void)
+    func save(completion: ((Error?) -> Void)?)
+    
+    func getFetchedResultsController() -> NSFetchedResultsController<Channel>
+    func getFetchedResultsController(from channel: ChannelStruct?) -> NSFetchedResultsController<Message>
+    
+    func fetchChannels(completion: @escaping (Error?) -> Void)
+    func fetchMessages(from channel: ChannelStruct?, completion: @escaping (Error?) -> Void)
+    
+    func add(channel: Channel, to user: User)
+    func add(message: Message, to channel: Channel)
 }

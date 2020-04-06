@@ -7,14 +7,16 @@
 //
 
 import Foundation
+import CoreData
 
 protocol ConversationService {
 
-    func fetchChannels(completion: @escaping ([Channel]) -> Void)
-    func fetchMessages(from channel: Channel?, completion: @escaping ([Message]) -> Void)
+    func fetchChannels(in context: NSManagedObjectContext, completion: @escaping (Error?) -> Void)
+    func fetchMessages(in context: NSManagedObjectContext, from channel: ChannelStruct?, completion: @escaping (Error?) -> Void)
 
-    func send(message: Message, to channel: Channel?)
-    func create(channel: Channel)
+    func send(message: MessageStruct, to channel: ChannelStruct?)
+    func create(channel: ChannelStruct)
+    func removeChannel(with id: String?)
 
     func getUserName() -> String?
 }

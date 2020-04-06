@@ -23,7 +23,7 @@
 		202B327E241EA15C002B2884 /* GCDDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B327D241EA15C002B2884 /* GCDDataManager.swift */; };
 		202B3280241EA1A3002B2884 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B327F241EA1A3002B2884 /* ProfileModel.swift */; };
 		202B3282241EA24C002B2884 /* OperationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B3281241EA24C002B2884 /* OperationDataManager.swift */; };
-		2050A42D242678360028318C /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A42C242678360028318C /* Channels.swift */; };
+		2050A42D242678360028318C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A42C242678360028318C /* Channel.swift */; };
 		2050A4322426788F0028318C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A4312426788F0028318C /* Message.swift */; };
 		2050A43524267B2D0028318C /* ConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43424267B2D0028318C /* ConversationService.swift */; };
 		2050A43724267B3B0028318C /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43624267B3B0028318C /* FirebaseService.swift */; };
@@ -32,8 +32,8 @@
 		20751F1F240C0148009E5780 /* AllChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F1E240C0148009E5780 /* AllChatsViewController.swift */; };
 		20751F21240C0167009E5780 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F20240C0167009E5780 /* ChatViewController.swift */; };
 		2099AACA241ECA2900B7D7B9 /* CustomAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2099AAC9241ECA2900B7D7B9 /* CustomAnimations.swift */; };
+		20AB9067243A4C7700DD509A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20AB9066243A4C7700DD509A /* GoogleService-Info.plist */; };
 		20CCD7B2240C1D1200C6C9A6 /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CCD7B1240C1D1200C6C9A6 /* ConfigurableView.swift */; };
-		20D002C824228AA3005072A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20D002C724228AA3005072A9 /* GoogleService-Info.plist */; };
 		AE120022E1376CCE65CDD3F5 /* Pods_T_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE9B76EF40B79540D7A72AC /* Pods_T_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,7 @@
 		202B327D241EA15C002B2884 /* GCDDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDDataManager.swift; sourceTree = "<group>"; };
 		202B327F241EA1A3002B2884 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		202B3281241EA24C002B2884 /* OperationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationDataManager.swift; sourceTree = "<group>"; };
-		2050A42C242678360028318C /* Channels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
+		2050A42C242678360028318C /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		2050A4312426788F0028318C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2050A43424267B2D0028318C /* ConversationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationService.swift; sourceTree = "<group>"; };
 		2050A43624267B3B0028318C /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -66,8 +66,8 @@
 		20751F1E240C0148009E5780 /* AllChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChatsViewController.swift; sourceTree = "<group>"; };
 		20751F20240C0167009E5780 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2099AAC9241ECA2900B7D7B9 /* CustomAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimations.swift; sourceTree = "<group>"; };
+		20AB9066243A4C7700DD509A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20CCD7B1240C1D1200C6C9A6 /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
-		20D002C724228AA3005072A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FE9B76EF40B79540D7A72AC /* Pods_T_Messenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T_Messenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3D98729F2AAD78745169BB /* Pods-T Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T Messenger.debug.xcconfig"; path = "Target Support Files/Pods-T Messenger/Pods-T Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +158,7 @@
 				202B327C241EA124002B2884 /* DataManagers */,
 				201BAE812430A61E00217B1A /* Model.xcdatamodeld */,
 				202B327F241EA1A3002B2884 /* ProfileModel.swift */,
-				2050A42C242678360028318C /* Channels.swift */,
+				2050A42C242678360028318C /* Channel.swift */,
 				2050A4312426788F0028318C /* Message.swift */,
 				201BAE882431319A00217B1A /* User.swift */,
 			);
@@ -220,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				201A4EA123F671610036B7FC /* Info.plist */,
-				20D002C724228AA3005072A9 /* GoogleService-Info.plist */,
+				20AB9066243A4C7700DD509A /* GoogleService-Info.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				201A4EA023F671610036B7FC /* LaunchScreen.storyboard in Resources */,
-				20D002C824228AA3005072A9 /* GoogleService-Info.plist in Resources */,
+				20AB9067243A4C7700DD509A /* GoogleService-Info.plist in Resources */,
 				201A4E9D23F671610036B7FC /* Assets.xcassets in Resources */,
 				201A4E9B23F6715D0036B7FC /* Main.storyboard in Resources */,
 			);
@@ -391,7 +391,7 @@
 				2050A43524267B2D0028318C /* ConversationService.swift in Sources */,
 				201A4E9823F6715D0036B7FC /* ProfileViewController.swift in Sources */,
 				2050A43724267B3B0028318C /* FirebaseService.swift in Sources */,
-				2050A42D242678360028318C /* Channels.swift in Sources */,
+				2050A42D242678360028318C /* Channel.swift in Sources */,
 				201A4E9423F6715D0036B7FC /* AppDelegate.swift in Sources */,
 				201BAE7C24307E8600217B1A /* StorageManager.swift in Sources */,
 				201BAE7E24307E9100217B1A /* StorageManagerProtocol.swift in Sources */,
@@ -558,8 +558,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.tcsbank.TinkoffChat;
+				MARKETING_VERSION = 0.8;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
@@ -579,8 +579,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.tcsbank.TinkoffChat;
+				MARKETING_VERSION = 0.8;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

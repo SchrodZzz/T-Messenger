@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 extension User {
-    static func getRequest(model: NSManagedObjectModel) -> NSFetchRequest<User>? {
+    static func getRequest() -> NSFetchRequest<User>? {
         return NSFetchRequest<User>(entityName: "User")
     }
 
@@ -25,8 +25,7 @@ extension User {
 
     static func getProfile(in context: NSManagedObjectContext, completion: @escaping (User?) -> Void) {
         context.perform {
-            guard let model = context.persistentStoreCoordinator?.managedObjectModel else { return }
-            guard let request = User.getRequest(model: model) else { return }
+            guard let request = User.getRequest() else { return }
             var profile: User?
             do {
                 let results = try context.fetch(request)
@@ -38,4 +37,5 @@ extension User {
             }
         }
     }
+    
 }

@@ -8,10 +8,10 @@
 
 import Foundation
 import Firebase
+import CoreData
 
 class FirebaseService: ConversationService {
-    private var channel: Channel?
-    private var userName: String?
+    private var channel: ChannelStruct?
 
     private lazy var db = Firestore.firestore()
     private lazy var allChannelsReference = db.collection("channels")
@@ -20,57 +20,92 @@ class FirebaseService: ConversationService {
         return db.collection("channels").document(channelIdentifier).collection("messages")
     }()
 
-    init() {
-        GCDDataManager().read { model in
-            self.userName = model?.name ?? "Unknown user"
-        }
-        channel = nil
-    }
-
-    func fetchChannels(completion: @escaping ([Channel]) -> Void) {
-        allChannelsReference.order(by: "lastActivity", descending: true).addSnapshotListener { snapshot, error in
+    func fetchChannels(in context: NSManagedObjectContext, completion: @escaping (Error?) -> Void) {
+        allChannelsReference.addSnapshotListener { snapshot, error in
             if let error = error {
-                print("Error getting channels: \(error)")
+                completion(error)
+                return
             }
-            if let documents = snapshot?.documents {
-                var channels: [Channel] = []
-                for doc in documents {
-                    channels.append(Channel(identifier: doc.documentID, dic: doc.data()))
+            if let changes = snapshot?.documentChanges {
+                for change in changes {
+                    let doc = change.document
+                    switch change.type {
+                    case .added:
+                        let channel = Channel.insert(in: context, ChannelStruct(identifier: doc.documentID, dic: doc.data()))
+                        User.getProfile(in: context) { profile in
+                            if let channel = channel {
+                                profile?.addToChannel(channel)
+                            }
+                        }
+                    case .modified:
+                        guard let channel = Channel.get(in: context, with: NSPredicate(format: "identifier == %@", doc.documentID)) else { return }
+                        let tmp = ChannelStruct(identifier: doc.documentID, dic: doc.data())
+                        channel.setValue(tmp.lastActivity, forKey: "lastActivity")
+                        channel.setValue(tmp.lastMessage, forKey: "lastMessage")
+                        channel.setValue(tmp.name, forKey: "name")
+                    case .removed:
+                        guard let channel = Channel.get(in: context, with: NSPredicate(format: "identifier == %@", doc.documentID)) else { return }
+                        User.getProfile(in: context) { profile in
+                            if let channel = channel as? Channel {
+                                profile?.removeFromChannel(channel)
+                            }
+                        }
+                        context.delete(channel)
+                    }
                 }
-                completion(channels)
+                completion(nil)
+                return
             }
+            completion(nil)
         }
     }
 
-    func fetchMessages(from channel: Channel?, completion: @escaping ([Message]) -> Void) {
+    func fetchMessages(in context: NSManagedObjectContext, from channel: ChannelStruct?, completion: @escaping (Error?) -> Void) {
+        guard let channel = channel else { return }
         self.channel = channel
         channelReference.order(by: "created").addSnapshotListener { snapshot, error in
             if let error = error {
-                print("Error getting channels: \(error)")
+                completion(error)
+                return
             }
-            if let documents = snapshot?.documents {
-                var messages: [Message] = []
-                for doc in documents {
-                    messages.append(Message(from: doc.data()))
+            if let changes = snapshot?.documentChanges.filter({ $0.type == .added }) {
+                for change in changes {
+                    let doc = change.document
+                    let message = Message.insert(in: context, MessageStruct(identifier: doc.documentID, from: doc.data()))
+                    if let message = message, let channel = Channel.get(in: context, with:
+                            NSPredicate(format: "identifier == %@", channel.identifier ?? "")) as? Channel {
+                        channel.addToMessage(message)
+                    }
                 }
-                completion(messages)
+                completion(nil)
+                return
             }
+            completion(nil)
+            return
         }
     }
 
-    func send(message: Message, to channel: Channel?) {
+    func send(message: MessageStruct, to channel: ChannelStruct?) {
         self.channel = channel
         channelReference.addDocument(data: message.toDict)
     }
 
-    func create(channel: Channel) {
+    func create(channel: ChannelStruct) {
         let id = allChannelsReference.addDocument(data: channel.nameToDic).documentID
-        self.channel = Channel(channel: channel, identifier: id)
-        send(message: Message(content: "Hello everyone!", senderName: getUserName()), to: self.channel)
+        self.channel = ChannelStruct(channel: channel, identifier: id)
+        send(message: MessageStruct(content: "Hello everyone!", senderName: getUserName()), to: self.channel)
+    }
+
+    func removeChannel(with id: String?) {
+        allChannelsReference.document(id ?? "").delete { err in
+            if let err = err {
+                print("Channel deletion error: \(err)")
+            }
+        }
     }
 
     func getUserName() -> String? {
-        return userName
+        return StorageManager.user?.name ?? "Unknown User"
     }
 
 }

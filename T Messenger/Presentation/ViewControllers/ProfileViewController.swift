@@ -134,7 +134,7 @@ class ProfileViewController: UIViewController {
         
         collectProfileData()
 
-        storageManager.saveProfile { error in
+        storageManager.save { error in
             if error == nil {
                 let successAlert = UIAlertController(title: nil, message: "Данные сохранены", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
