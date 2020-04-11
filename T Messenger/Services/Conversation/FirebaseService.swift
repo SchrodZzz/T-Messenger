@@ -15,10 +15,10 @@ class FirebaseService: ConversationService {
 
     private lazy var db = Firestore.firestore()
     private lazy var allChannelsReference = db.collection("channels")
-    private lazy var channelReference: CollectionReference = {
+    private var channelReference: CollectionReference {
         guard let channelIdentifier = channel?.identifier else { fatalError() }
         return db.collection("channels").document(channelIdentifier).collection("messages")
-    }()
+    }
 
     func fetchChannels(in context: NSManagedObjectContext, completion: @escaping (Error?) -> Void) {
         allChannelsReference.addSnapshotListener { snapshot, error in
@@ -92,8 +92,8 @@ class FirebaseService: ConversationService {
 
     func create(channel: ChannelStruct) {
         let id = allChannelsReference.addDocument(data: channel.nameToDic).documentID
-        self.channel = ChannelStruct(channel: channel, identifier: id)
-        send(message: MessageStruct(content: "Hello everyone!", senderName: getUserName()), to: self.channel)
+        let channel = ChannelStruct(channel: channel, identifier: id)
+        send(message: MessageStruct(content: "Hello everyone!", senderName: getUserName()), to: channel)
     }
 
     func removeChannel(with id: String?) {

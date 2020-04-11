@@ -71,12 +71,4 @@ class StorageManager: StorageManagerProtocol {
             completion(error)
         }
     }
-    
-    func add(channel: Channel, to user: User) {
-        
-    }
-    
-    func add(message: Message, to channel: Channel) {
-        
-    }
 }

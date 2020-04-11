@@ -18,7 +18,4 @@ protocol StorageManagerProtocol {
     
     func fetchChannels(completion: @escaping (Error?) -> Void)
     func fetchMessages(from channel: ChannelStruct?, completion: @escaping (Error?) -> Void)
-    
-    func add(channel: Channel, to user: User)
-    func add(message: Message, to channel: Channel)
 }

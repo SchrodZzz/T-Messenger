@@ -21,9 +21,9 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 
-    private var notificationMethods: NotificationMethods!
-    private var storageManager: StorageManagerProtocol!
-    private var profile: User!
+    private lazy var notificationMethods: NotificationMethods = NotificationMethods(for: self)
+    private lazy var storageManager: StorageManagerProtocol = StorageManager()
+    private var profile: User?
 
     private var profileIsChanged = false
     private var editModeIsActive = false
@@ -38,9 +38,6 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        storageManager = StorageManager()
-        notificationMethods = NotificationMethods(for: self)
 
         readProfile()
 
@@ -118,7 +115,7 @@ class ProfileViewController: UIViewController {
                 self.profile = profile
                 self.userNameTextField.text = profile.name
                 self.aboutMeTextView.text = profile.aboutMe
-                let data = self.profile.avatar as Data?
+                let data = self.profile?.avatar as Data?
                 if let data = data, let image = UIImage(data: data) {
                     self.userImageView.image = image
                 } else {
@@ -134,34 +131,34 @@ class ProfileViewController: UIViewController {
         
         collectProfileData()
 
-        storageManager.save { error in
+        storageManager.save { [weak self] error in
             if error == nil {
                 let successAlert = UIAlertController(title: nil, message: "Данные сохранены", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-                    self.changeUserInteraction(enabled: false)
+                    self?.changeUserInteraction(enabled: false)
                     successAlert.dismiss(animated: true, completion: nil)
-                    self.activityIndicatorView.stopAnimating()
-                    self.profileEditButton.isEnabled = true
-                    self.profileIsChanged = false
+                    self?.activityIndicatorView.stopAnimating()
+                    self?.profileEditButton.isEnabled = true
+                    self?.profileIsChanged = false
                 })
                 successAlert.addAction(okAction)
-                self.present(successAlert, animated: true, completion: nil)
+                self?.present(successAlert, animated: true, completion: nil)
 
             } else {
                 let failureAlert = UIAlertController(title: "Ошибка", message: "Не удалось сохранить данные", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-                    self.changeUserInteraction(enabled: false)
+                    self?.changeUserInteraction(enabled: false)
                     failureAlert.dismiss(animated: true, completion: nil)
-                    self.activityIndicatorView.stopAnimating()
-                    self.profileEditButton.isEnabled = true
+                    self?.activityIndicatorView.stopAnimating()
+                    self?.profileEditButton.isEnabled = true
                 })
                 let retryAction = UIAlertAction(title: "Повторить", style: .default, handler: { _ in
                     failureAlert.dismiss(animated: true, completion: nil)
-                    self.saveProfile()
+                    self?.saveProfile()
                 })
                 failureAlert.addAction(okAction)
                 failureAlert.addAction(retryAction)
-                self.present(failureAlert, animated: true, completion: nil)
+                self?.present(failureAlert, animated: true, completion: nil)
             }
         }
     }
@@ -177,10 +174,10 @@ class ProfileViewController: UIViewController {
     }
 
     private func collectProfileData() {
-        profile.name = userNameTextField.text
-        profile.aboutMe = aboutMeTextView.text
+        profile?.name = userNameTextField.text
+        profile?.aboutMe = aboutMeTextView.text
         if let image = userImageView.image {
-            profile.avatar = image.pngData() as Data?
+            profile?.avatar = image.pngData() as Data?
         }
     }
 

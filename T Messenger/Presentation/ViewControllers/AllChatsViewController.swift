@@ -16,27 +16,23 @@ class AllChatsViewController: UIViewController {
     @IBOutlet weak var allChannelsTableView: UITableView!
     @IBOutlet weak var addChatButton: UIBarButtonItem!
 
-    private var fetchedResultsController: NSFetchedResultsController<Channel>!
+    private lazy var frc: NSFetchedResultsController<Channel> = storageManager.getFetchedResultsController()
 
-    private var conversationService: ConversationService!
-    private var storageManager: StorageManagerProtocol!
+    private lazy var conversationService: ConversationService = FirebaseService()
+    private lazy var storageManager: StorageManagerProtocol = StorageManager()
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        conversationService = FirebaseService()
-        storageManager = StorageManager()
-
         storageManager.fetchChannels { error in
             print("fetchChannels : \(error?.localizedDescription ?? "OK")")
         }
 
-        fetchedResultsController = storageManager.getFetchedResultsController()
-        fetchedResultsController.delegate = self
+        frc.delegate = self
         do {
-            try fetchedResultsController.performFetch()
+            try frc.performFetch()
         } catch {
             print("Can't fetch from current context")
         }
@@ -68,37 +64,31 @@ class AllChatsViewController: UIViewController {
 extension AllChatsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections?.count ?? 0
+        return frc.sections?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return frc.sections?[section].numberOfObjects ?? 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            if fetchedResultsController.sections?[0].numberOfObjects ?? 0 > 0 {
-                return "Active"
-            }
-        case 1:
-            if fetchedResultsController.sections?[1].numberOfObjects ?? 0 > 0 {
-                return "Inactive"
-            }
-        default:
-            return "Unknown #\(section + 1)"
+        guard let channels = frc.sections?[section], channels.numberOfObjects > 0 else { return nil }
+        let sectionContainsActiveChannels = frc.object(at: IndexPath(row: 0, section: section)).isActive
+        if sectionContainsActiveChannels {
+            return "Active"
+        } else {
+            return "Inactive"
         }
-        return nil
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as? ChatCell
             else { fatalError("ChatCell cannot be dequeued") }
 
-        let channel = fetchedResultsController.object(at: indexPath)
+        let channel = frc.object(at: indexPath)
         cell.configure(with: channel)
 
-        if indexPath.section == 0 {
+        if channel.isActive {
             cell.layer.backgroundColor = UIColor(rgb: 0xFFEE99).cgColor
         } else {
             cell.layer.backgroundColor = UIColor.white.cgColor
@@ -108,7 +98,7 @@ extension AllChatsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let channel = fetchedResultsController.object(at: indexPath)
+        let channel = frc.object(at: indexPath)
         ChatViewController.channel = ChannelStruct(channel)
     }
 
@@ -118,7 +108,7 @@ extension AllChatsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            conversationService.removeChannel(with: fetchedResultsController.object(at: indexPath).identifier)
+            conversationService.removeChannel(with: frc.object(at: indexPath).identifier)
         }
     }
 

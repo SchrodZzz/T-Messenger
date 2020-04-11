@@ -27,7 +27,6 @@
 		2050A4322426788F0028318C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A4312426788F0028318C /* Message.swift */; };
 		2050A43524267B2D0028318C /* ConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43424267B2D0028318C /* ConversationService.swift */; };
 		2050A43724267B3B0028318C /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43624267B3B0028318C /* FirebaseService.swift */; };
-		2050A439242746DB0028318C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A438242746DB0028318C /* Extensions.swift */; };
 		2050A43B242758B30028318C /* NotificationMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43A242758B30028318C /* NotificationMethods.swift */; };
 		20751F1F240C0148009E5780 /* AllChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F1E240C0148009E5780 /* AllChatsViewController.swift */; };
 		20751F21240C0167009E5780 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F20240C0167009E5780 /* ChatViewController.swift */; };
@@ -61,7 +60,6 @@
 		2050A4312426788F0028318C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2050A43424267B2D0028318C /* ConversationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationService.swift; sourceTree = "<group>"; };
 		2050A43624267B3B0028318C /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
-		2050A438242746DB0028318C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2050A43A242758B30028318C /* NotificationMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMethods.swift; sourceTree = "<group>"; };
 		20751F1E240C0148009E5780 /* AllChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChatsViewController.swift; sourceTree = "<group>"; };
 		20751F20240C0167009E5780 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				20DF5AE2242621C30023E08E /* Plists */,
 				20751F23240C0183009E5780 /* Model */,
 				2050A43324267B0A0028318C /* Conversation */,
-				2050A438242746DB0028318C /* Extensions.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -385,7 +382,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				202B3280241EA1A3002B2884 /* ProfileModel.swift in Sources */,
-				2050A439242746DB0028318C /* Extensions.swift in Sources */,
 				202B327B241E9F83002B2884 /* DataManagerProtocol.swift in Sources */,
 				2050A4322426788F0028318C /* Message.swift in Sources */,
 				2050A43524267B2D0028318C /* ConversationService.swift in Sources */,

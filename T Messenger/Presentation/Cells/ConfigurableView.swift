@@ -14,3 +14,17 @@ protocol ConfigurableView {
 
     func configure(with model: ConfigurationModel)
 }
+
+extension Date {
+    func toString() -> String {
+        let dateFormatter = DateFormatter()
+
+        if Calendar.current.isDateInToday(self) {
+            dateFormatter.dateFormat = "HH:mm"
+        } else {
+            dateFormatter.dateFormat = "dd MMM"
+        }
+
+        return dateFormatter.string(from: self)
+    }
+}

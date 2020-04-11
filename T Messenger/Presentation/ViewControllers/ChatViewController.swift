@@ -20,30 +20,25 @@ class ChatViewController: UIViewController {
 
     private let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
 
-    private var fetchedResultsController: NSFetchedResultsController<Message>!
+    private lazy var frc: NSFetchedResultsController<Message> = storageManager.getFetchedResultsController(from: ChatViewController.channel)
 
-    private var notificationMethods: NotificationMethods!
-    private var conversationService: ConversationService!
-    private var storageManager: StorageManagerProtocol!
+    private lazy var notificationMethods: NotificationMethods = NotificationMethods(for: self)
+    private lazy var conversationService: ConversationService = FirebaseService()
+    private lazy var storageManager: StorageManagerProtocol = StorageManager()
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        notificationMethods = NotificationMethods(for: self)
-        conversationService = FirebaseService()
-        storageManager = StorageManager()
-
         storageManager.fetchMessages(from: ChatViewController.channel) { [weak self] error in
             print("fetchMessages : \(error?.localizedDescription ?? "OK")")
             self?.scrollToBottom()
         }
 
-        fetchedResultsController = storageManager.getFetchedResultsController(from: ChatViewController.channel)
-        fetchedResultsController.delegate = self
+        frc.delegate = self
         do {
-            try fetchedResultsController.performFetch()
+            try frc.performFetch()
         } catch {
             print("Can't fetch from current context")
         }
@@ -71,7 +66,6 @@ class ChatViewController: UIViewController {
         conversationService.send(message: message, to: ChatViewController.channel)
         messageInputTextField.text = ""
         changeSendButtonState(to: false)
-        dismissKeyboard()
     }
 
     // MARK: - Notification Methods
@@ -126,16 +120,16 @@ extension ChatViewController: UITextFieldDelegate {
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections?.count ?? 0
+        return frc.sections?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return frc.sections?[section].numberOfObjects ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let message = fetchedResultsController.object(at: indexPath)
+        let message = frc.object(at: indexPath)
 
         let identifier = senderIsUser(senderId: message.senderId ?? "") ? "outMessageCell" : "inMessageCell"
 
