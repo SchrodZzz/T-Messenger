@@ -30,16 +30,14 @@ class FirebaseService: IConversationService {
         }
     }
 
-    func fetchMessages(fromChannel id: String, completion: @escaping (Error?, DocumentChange?) -> Void) {
+    func fetchMessages(fromChannel id: String, completion: @escaping (Error?, [DocumentChange]?) -> Void) {
         networkManager.fetchMessages(fromChannel: id) { error, changes in
             if let error = error {
                 completion(error, nil)
                 return
             }
             if let changes = changes {
-                for change in changes {
-                    completion(nil, change)
-                }
+                completion(nil, changes)
             }
         }
     }

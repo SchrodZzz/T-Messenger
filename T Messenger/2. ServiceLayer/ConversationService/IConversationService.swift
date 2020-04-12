@@ -10,7 +10,7 @@ import Firebase
 
 protocol IConversationService {
     func fetchChannels(completion: @escaping (Error?, DocumentChange?) -> Void)
-    func fetchMessages(fromChannel id: String, completion: @escaping (Error?, DocumentChange?) -> Void)
+    func fetchMessages(fromChannel id: String, completion: @escaping (Error?, [DocumentChange]?) -> Void)
 
     func createChannel(named name: String, firstMessage: MessageStruct)
     func removeChannel(id: String?)

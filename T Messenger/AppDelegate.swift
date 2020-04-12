@@ -12,6 +12,7 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    #warning("TODO: refactor one more time (-;")
     private let rootAssembly = RootAssembly()
 
     var window: UIWindow?

@@ -21,7 +21,7 @@ class ChannelViewController: UIViewController {
     let presentationAssembly: IPresentationAssembly
     let model: IChannelModel
 
-    lazy var frc: NSFetchedResultsController<Message> = model.getFetchedResultsController(fromChannel: ChannelViewController.channel?.identifier)
+    lazy var frc: NSFetchedResultsController<Message> = model.getFetchedResultsController(fromChannel: ChannelViewController.channel?.name)
 
     private let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
     private lazy var notificationMethods: NotificationMethods = NotificationMethods(for: self)
@@ -67,6 +67,13 @@ class ChannelViewController: UIViewController {
         self.navigationItem.title = ChannelViewController.channel?.name ?? "Unknown channel name"
 
         sendButton.layer.cornerRadius = 10.0
+    }
+    
+    #warning("TODO: make scroll to bottom more smoothy")
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        scrollToBottom()
     }
 
     deinit {
