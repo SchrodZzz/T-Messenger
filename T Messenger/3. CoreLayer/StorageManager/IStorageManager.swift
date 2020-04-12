@@ -11,6 +11,7 @@ import CoreData
 
 protocol IStorageManager {
 
+    var mainContext: NSManagedObjectContext { get }
     var saveContext: NSManagedObjectContext { get }
 
     func save(completion: ((Error?) -> Void)?)

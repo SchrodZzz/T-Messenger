@@ -14,7 +14,6 @@ class AllChannelsViewController: UIViewController {
     // MARK: - Proporties
 
     @IBOutlet weak var allChannelsTableView: UITableView!
-    @IBOutlet weak var addChatButton: UIBarButtonItem!
 
     let presentationAssembly: IPresentationAssembly
     let model: IAllChannelsModel
@@ -26,7 +25,7 @@ class AllChannelsViewController: UIViewController {
     init(model: IAllChannelsModel, presentationAssembly: IPresentationAssembly) {
         self.model = model
         self.presentationAssembly = presentationAssembly
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: "AllChannels", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -38,6 +37,9 @@ class AllChannelsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        allChannelsTableView.register(UINib(nibName: "ChatCell", bundle: nil), forCellReuseIdentifier: "ChatCell")
+
+        adjustNavigationBar()
         model.fetchChannels()
 
         frc.delegate = self
@@ -48,9 +50,9 @@ class AllChannelsViewController: UIViewController {
         }
     }
 
-    // MARK: - Button Actions
+    // MARK: - Private methods
 
-    @IBAction func addChatButtonPressed(_ sender: Any) {
+    @objc func addChannelButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Create new channel", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
@@ -66,9 +68,22 @@ class AllChannelsViewController: UIViewController {
 
         self.present(alert, animated: true)
     }
-    
-    @IBAction func profileButtonPressed(_ sender: Any) {
+
+    @objc func profileButtonPressed(_ sender: Any) {
         self.present(presentationAssembly.profileViewController(), animated: true, completion: nil)
+    }
+
+    private func adjustNavigationBar() {
+        title = "Tinkoff Chat"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "All Chats", style: .plain, target: nil, action: nil)
+        if let topItem = navigationController?.navigationBar.topItem {
+            let profileButton = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(profileButtonPressed))
+            let addChannelButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addChannelButtonPressed))
+            topItem.leftBarButtonItem = profileButton
+            topItem.rightBarButtonItem = addChannelButton
+        } else {
+            fatalError()
+        }
     }
 
 }

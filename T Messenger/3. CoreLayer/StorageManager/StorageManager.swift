@@ -12,6 +12,7 @@ class StorageManager: IStorageManager {
 
     var user: User?
 
+    lazy var mainContext: NSManagedObjectContext = CoreDataStack.shared.mainContext
     lazy var saveContext: NSManagedObjectContext = CoreDataStack.shared.saveContext
 
     private let coreDataStack = CoreDataStack.shared

@@ -49,6 +49,8 @@
 		20DDAD9124437CE500CCBE25 /* ChannelStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD9024437CE500CCBE25 /* ChannelStruct.swift */; };
 		20DDAD93244382A900CCBE25 /* IPresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD92244382A900CCBE25 /* IPresentationAssembly.swift */; };
 		20DDAD952443830A00CCBE25 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD942443830A00CCBE25 /* PresentationAssembly.swift */; };
+		20DDAD9B2443A56F00CCBE25 /* AllChannels.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DDAD9A2443A56F00CCBE25 /* AllChannels.xib */; };
+		20DDAD9D2443AA0100CCBE25 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DDAD9C2443AA0100CCBE25 /* ChatCell.xib */; };
 		AE120022E1376CCE65CDD3F5 /* Pods_T_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE9B76EF40B79540D7A72AC /* Pods_T_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,8 @@
 		20DDAD9024437CE500CCBE25 /* ChannelStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStruct.swift; sourceTree = "<group>"; };
 		20DDAD92244382A900CCBE25 /* IPresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPresentationAssembly.swift; sourceTree = "<group>"; };
 		20DDAD942443830A00CCBE25 /* PresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
+		20DDAD9A2443A56F00CCBE25 /* AllChannels.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllChannels.xib; sourceTree = "<group>"; };
+		20DDAD9C2443AA0100CCBE25 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		5FE9B76EF40B79540D7A72AC /* Pods_T_Messenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T_Messenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3D98729F2AAD78745169BB /* Pods-T Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T Messenger.debug.xcconfig"; path = "Target Support Files/Pods-T Messenger/Pods-T Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,6 +285,7 @@
 				20751F1E240C0148009E5780 /* AllChannelsViewController.swift */,
 				20DDAD6024432FCF00CCBE25 /* AllChannels+Delegates.swift */,
 				20DDAD622443303500CCBE25 /* AllChannels+DataSources.swift */,
+				20DDAD9A2443A56F00CCBE25 /* AllChannels.xib */,
 			);
 			path = AllChannelsViewController;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				200EBD9D240C051400D97EB5 /* ChatCell.swift */,
+				20DDAD9C2443AA0100CCBE25 /* ChatCell.xib */,
 			);
 			path = ChatCell;
 			sourceTree = "<group>";
@@ -453,8 +459,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				201A4EA023F671610036B7FC /* LaunchScreen.storyboard in Resources */,
+				20DDAD9D2443AA0100CCBE25 /* ChatCell.xib in Resources */,
 				20AB9067243A4C7700DD509A /* GoogleService-Info.plist in Resources */,
 				201A4E9D23F671610036B7FC /* Assets.xcassets in Resources */,
+				20DDAD9B2443A56F00CCBE25 /* AllChannels.xib in Resources */,
 				201A4E9B23F6715D0036B7FC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

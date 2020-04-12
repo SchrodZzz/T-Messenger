@@ -58,7 +58,7 @@ class StorageService: IStorageService {
     func getFetchedResultsController() -> NSFetchedResultsController<Channel> {
         let request: NSFetchRequest<Channel> = Channel.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "lastActivity", ascending: false)]
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: storageManager.saveContext,
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: storageManager.mainContext,
                                                                   sectionNameKeyPath: "isActive", cacheName: nil)
         return fetchedResultsController
     }
@@ -67,7 +67,7 @@ class StorageService: IStorageService {
         let request: NSFetchRequest<Message> = Message.fetchRequest()
         request.predicate = NSPredicate(format: "channel.name == %@", name ?? "")
         request.sortDescriptors = [NSSortDescriptor(key: "created", ascending: true)]
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: storageManager.saveContext,
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: storageManager.mainContext,
                                                                   sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultsController
     }

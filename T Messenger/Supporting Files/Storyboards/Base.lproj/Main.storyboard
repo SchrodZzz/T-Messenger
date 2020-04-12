@@ -185,19 +185,10 @@
                         <viewLayoutGuide key="safeArea" id="MV9-WA-twZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="All Chats" id="duO-kW-QhB">
-                        <barButtonItem key="leftBarButtonItem" title="Profile" id="J4I-6Q-dBw">
-                            <connections>
-                                <action selector="profileButtonPressed:" destination="aZD-zI-FZl" id="gYo-YF-Iso"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ssX-mJ-qRU">
-                            <connections>
-                                <action selector="addChatButtonPressed:" destination="aZD-zI-FZl" id="sVX-cl-Sn4"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="J4I-6Q-dBw"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ssX-mJ-qRU"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="addChatButton" destination="ssX-mJ-qRU" id="25l-Xq-Vat"/>
                         <outlet property="allChannelsTableView" destination="FHr-cE-DLN" id="WBZ-az-ezK"/>
                     </connections>
                 </viewController>
