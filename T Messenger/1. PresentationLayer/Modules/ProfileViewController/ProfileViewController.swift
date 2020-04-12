@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
 
     init(model: IProfileModel) {
         self.model = model
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: "Profile", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {

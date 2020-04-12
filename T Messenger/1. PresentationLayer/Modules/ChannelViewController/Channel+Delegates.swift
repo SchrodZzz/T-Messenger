@@ -14,11 +14,11 @@ import CoreData
 extension ChannelViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        conversationTableView.beginUpdates()
+        channelTableView.beginUpdates()
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        conversationTableView.endUpdates()
+        channelTableView.endUpdates()
         scrollToBottom()
     }
 
@@ -31,7 +31,7 @@ extension ChannelViewController: NSFetchedResultsControllerDelegate {
         }
 
         if type == .insert {
-            conversationTableView.insertRows(at: [newIndexPath], with: .none)
+            channelTableView.insertRows(at: [newIndexPath], with: .none)
         }
     }
 
@@ -39,7 +39,7 @@ extension ChannelViewController: NSFetchedResultsControllerDelegate {
                     atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
 
         if type == .insert {
-            conversationTableView.insertSections(IndexSet(integer: sectionIndex), with: .none)
+            channelTableView.insertSections(IndexSet(integer: sectionIndex), with: .none)
         }
     }
 }

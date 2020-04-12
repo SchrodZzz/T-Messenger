@@ -12,7 +12,7 @@ import CoreData
 class ChannelViewController: UIViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var conversationTableView: UITableView!
+    @IBOutlet weak var channelTableView: UITableView!
     @IBOutlet weak var messageInputTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
 
@@ -31,7 +31,7 @@ class ChannelViewController: UIViewController {
     init(model: IChannelModel, presentationAssembly: IPresentationAssembly) {
         self.model = model
         self.presentationAssembly = presentationAssembly
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: "Channel", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -42,6 +42,9 @@ class ChannelViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        channelTableView.register(UINib(nibName: "inMessageCell", bundle: nil), forCellReuseIdentifier: "inMessageCell")
+        channelTableView.register(UINib(nibName: "outMessageCell", bundle: nil), forCellReuseIdentifier: "outMessageCell")
 
         model.fetchMessages(fromChannel: ChannelViewController.channel?.identifier ?? "") { [weak self] in
             self?.scrollToBottom()
@@ -101,9 +104,9 @@ class ChannelViewController: UIViewController {
     // MARK: - Methods
 
     func scrollToBottom() {
-        let messageCount = tableView(conversationTableView, numberOfRowsInSection: 0) - 1
+        let messageCount = tableView(channelTableView, numberOfRowsInSection: 0) - 1
         guard messageCount > 0 else { return }
-        self.conversationTableView.scrollToRow(at: IndexPath(row: messageCount, section: 0), at: .bottom, animated: false)
+        self.channelTableView.scrollToRow(at: IndexPath(row: messageCount, section: 0), at: .bottom, animated: false)
     }
 
     func senderIsUser(senderId: String) -> Bool {

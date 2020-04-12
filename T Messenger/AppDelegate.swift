@@ -12,7 +12,6 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    #warning("TODO: Migrate from main storyboard to xib files")
     private let rootAssembly = RootAssembly()
 
     var window: UIWindow?

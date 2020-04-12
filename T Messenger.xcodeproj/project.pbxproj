@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2002A3E72443B28D00B50B12 /* Profile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2002A3E62443B28D00B50B12 /* Profile.xib */; };
+		2002A3E92443B3C500B50B12 /* Channel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2002A3E82443B3C500B50B12 /* Channel.xib */; };
+		2002A3EB2443B40B00B50B12 /* inMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2002A3EA2443B40B00B50B12 /* inMessageCell.xib */; };
+		2002A3ED2443B41800B50B12 /* outMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2002A3EC2443B41800B50B12 /* outMessageCell.xib */; };
 		200EBD9E240C051400D97EB5 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EBD9D240C051400D97EB5 /* ChatCell.swift */; };
 		200EBDA9240C1B3000D97EB5 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EBDA8240C1B3000D97EB5 /* MessageCell.swift */; };
 		201A4E9423F6715D0036B7FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A4E9323F6715D0036B7FC /* AppDelegate.swift */; };
 		201A4E9823F6715D0036B7FC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A4E9723F6715D0036B7FC /* ProfileViewController.swift */; };
-		201A4E9B23F6715D0036B7FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201A4E9923F6715D0036B7FC /* Main.storyboard */; };
 		201A4E9D23F671610036B7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 201A4E9C23F671610036B7FC /* Assets.xcassets */; };
 		201A4EA023F671610036B7FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201A4E9E23F671610036B7FC /* LaunchScreen.storyboard */; };
 		201BAE7C24307E8600217B1A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE7B24307E8600217B1A /* StorageManager.swift */; };
@@ -56,12 +59,15 @@
 
 /* Begin PBXFileReference section */
 		1A2ECE55287A73A67F9CEE54 /* Pods-T Messenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T Messenger.release.xcconfig"; path = "Target Support Files/Pods-T Messenger/Pods-T Messenger.release.xcconfig"; sourceTree = "<group>"; };
+		2002A3E62443B28D00B50B12 /* Profile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Profile.xib; sourceTree = "<group>"; };
+		2002A3E82443B3C500B50B12 /* Channel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Channel.xib; sourceTree = "<group>"; };
+		2002A3EA2443B40B00B50B12 /* inMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = inMessageCell.xib; sourceTree = "<group>"; };
+		2002A3EC2443B41800B50B12 /* outMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = outMessageCell.xib; sourceTree = "<group>"; };
 		200EBD9D240C051400D97EB5 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		200EBDA8240C1B3000D97EB5 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		201A4E9023F6715D0036B7FC /* T Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		201A4E9323F6715D0036B7FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		201A4E9723F6715D0036B7FC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		201A4E9A23F6715D0036B7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		201A4E9C23F671610036B7FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		201A4E9F23F671610036B7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		201A4EA123F671610036B7FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,7 +197,6 @@
 		2087EF7624261CFC00AF97BE /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				201A4E9923F6715D0036B7FC /* Main.storyboard */,
 				201A4E9E23F671610036B7FC /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -274,6 +279,7 @@
 				20DDAD7124434AAB00CCBE25 /* ProfileModel.swift */,
 				201A4E9723F6715D0036B7FC /* ProfileViewController.swift */,
 				20DDAD5E24432EA500CCBE25 /* Profile+Delegates.swift */,
+				2002A3E62443B28D00B50B12 /* Profile.xib */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 				20751F20240C0167009E5780 /* ChannelViewController.swift */,
 				20DDAD64244330BF00CCBE25 /* Channel+Delegates.swift */,
 				20DDAD66244330DE00CCBE25 /* Channel+DataSources.swift */,
+				2002A3E82443B3C500B50B12 /* Channel.xib */,
 			);
 			path = ChannelViewController;
 			sourceTree = "<group>";
@@ -323,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				200EBDA8240C1B3000D97EB5 /* MessageCell.swift */,
+				2002A3EA2443B40B00B50B12 /* inMessageCell.xib */,
+				2002A3EC2443B41800B50B12 /* outMessageCell.xib */,
 			);
 			path = MessageCell;
 			sourceTree = "<group>";
@@ -463,7 +472,10 @@
 				20AB9067243A4C7700DD509A /* GoogleService-Info.plist in Resources */,
 				201A4E9D23F671610036B7FC /* Assets.xcassets in Resources */,
 				20DDAD9B2443A56F00CCBE25 /* AllChannels.xib in Resources */,
-				201A4E9B23F6715D0036B7FC /* Main.storyboard in Resources */,
+				2002A3E92443B3C500B50B12 /* Channel.xib in Resources */,
+				2002A3EB2443B40B00B50B12 /* inMessageCell.xib in Resources */,
+				2002A3ED2443B41800B50B12 /* outMessageCell.xib in Resources */,
+				2002A3E72443B28D00B50B12 /* Profile.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,14 +589,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		201A4E9923F6715D0036B7FC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				201A4E9A23F6715D0036B7FC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		201A4E9E23F671610036B7FC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
