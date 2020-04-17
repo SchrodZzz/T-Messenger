@@ -12,16 +12,16 @@ import UIKit
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = sourceType
-        imagePickerController.allowsEditing = true
         if sourceType == .camera && !UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             let alert = UIAlertController(title: "Камера не обнаружена", message: "На вашем устройстве не обнаружена камера", preferredStyle: .alert)
             let result = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(result)
             present(alert, animated: true, completion: nil)
         } else {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = sourceType
+            imagePickerController.allowsEditing = true
             present(imagePickerController, animated: true, completion: nil)
         }
     }
