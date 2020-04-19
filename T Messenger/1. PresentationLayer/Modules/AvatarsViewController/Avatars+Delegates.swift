@@ -29,12 +29,23 @@ extension AvatarsViewController: IAvatarsModelDelegate {
 extension AvatarsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         guard !avatarHasBeenSelected else { return }
+        activityIndicator.startAnimating()
+        setCellAsSelected(collectionView, at: indexPath)
         DispatchQueue.global(qos: .utility).async {
             self.model.loadImage(urlString: self.avatars[indexPath.row].largeURLString ?? "") { imageData in
                 self.delegate?.didFinishAvatarSelection(with: imageData)
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
         avatarHasBeenSelected = true
+    }
+    
+    private func setCellAsSelected(_ collectionView: UICollectionView, at indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? AvatarCell {
+            cell.avatarImageView.image = UIImage(named: "Selected")
+        }
     }
 }
 
