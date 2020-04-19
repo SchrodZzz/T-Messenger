@@ -10,7 +10,7 @@ import Firebase
 
 protocol IConversationManager {
 
-    #warning("TODO: think about removing Firebase specific data from here")
+    #warning("TODO: think about removing Firebase specific data from here (let's use some generics)")
     func fetchChannels(completion: @escaping (Error?, [DocumentChange]?) -> Void)
     func fetchMessages(fromChannel id: String?, completion: @escaping (Error?, [DocumentChange]?) -> Void)
     

@@ -1,5 +1,9 @@
 #  T Messenger
 ## Versions
+#### v0.10
+```
+Add NetworkManager and option for loading profile avatar from the internet
+``` 
 #### v0.9
 ```
 Migration to SOA + MVP architecture

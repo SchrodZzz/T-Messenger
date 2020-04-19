@@ -10,14 +10,14 @@ import Firebase
 
 class FirebaseService: IConversationService {
 
-    private let networkManager: IConversationManager
+    private let conversationManager: IConversationManager
 
-    init(networkManager: IConversationManager) {
-        self.networkManager = networkManager
+    init(conversationManager: IConversationManager) {
+        self.conversationManager = conversationManager
     }
 
     func fetchChannels(completion: @escaping (Error?, DocumentChange?) -> Void) {
-        networkManager.fetchChannels { error, changes in
+        conversationManager.fetchChannels { error, changes in
             if let error = error {
                 completion(error, nil)
                 return
@@ -31,7 +31,7 @@ class FirebaseService: IConversationService {
     }
 
     func fetchMessages(fromChannel id: String, completion: @escaping (Error?, [DocumentChange]?) -> Void) {
-        networkManager.fetchMessages(fromChannel: id) { error, changes in
+        conversationManager.fetchMessages(fromChannel: id) { error, changes in
             if let error = error {
                 completion(error, nil)
                 return
@@ -43,15 +43,15 @@ class FirebaseService: IConversationService {
     }
 
     func createChannel(named name: String, firstMessage: MessageStruct) {
-        let id = networkManager.addChannel(named: name)
-        networkManager.send(message: firstMessage, toChannel: id)
+        let id = conversationManager.addChannel(named: name)
+        conversationManager.send(message: firstMessage, toChannel: id)
     }
 
     func removeChannel(id: String?) {
-        networkManager.removeChannel(id: id)
+        conversationManager.removeChannel(id: id)
     }
 
     func send(message: MessageStruct, toChannel id: String?) {
-        networkManager.send(message: message, toChannel: id)
+        conversationManager.send(message: message, toChannel: id)
     }
 }

@@ -14,7 +14,6 @@ protocol IProfileModel {
 }
 
 class ProfileModel: IProfileModel {
-    
     let storageService: IStorageService
     
     init(storageService: IStorageService) {

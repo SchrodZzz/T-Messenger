@@ -14,6 +14,7 @@ final class ServicesAssembly: IServicesAssembly {
         self.coreAssembly = coreAssembly
     }
     
-    lazy var conversationService: IConversationService = FirebaseService(networkManager: self.coreAssembly.networkManager)
+    lazy var conversationService: IConversationService = FirebaseService(conversationManager: self.coreAssembly.conversationManager)
     lazy var storageService: IStorageService = StorageService(storageManager: self.coreAssembly.storageManager)
+    lazy var pixabayService: IPixabayService = PixabayService(requestSender: self.coreAssembly.requestSender)
 }

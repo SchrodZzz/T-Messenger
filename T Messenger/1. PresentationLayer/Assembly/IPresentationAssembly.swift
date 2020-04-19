@@ -13,4 +13,6 @@ protocol IPresentationAssembly {
     func allChannelsViewController() -> AllChannelsViewController
     
     func channelViewController() -> ChannelViewController
+    
+    func avatarsViewController() -> AvatarsViewController
 }

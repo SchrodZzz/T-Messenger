@@ -18,7 +18,7 @@ final class PresentationAssembly: IPresentationAssembly {
     
     func profileViewController() -> ProfileViewController {
         let model = profileModel()
-        let profileVC = ProfileViewController(model: model)
+        let profileVC = ProfileViewController(model: model, presentationAssembly: self)
         return profileVC
     }
     
@@ -48,6 +48,18 @@ final class PresentationAssembly: IPresentationAssembly {
     
     private func channelModel() -> IChannelModel {
         return ChannelModel(storageService: serviceAssembly.storageService, conversationService: serviceAssembly.conversationService)
+    }
+    
+    // MARK: - AvatarsViewController
+    
+    func avatarsViewController() -> AvatarsViewController {
+        let model = avatarsModel()
+        let avatarsVC = AvatarsViewController(model: model, presentationAssembly: self)
+        return avatarsVC
+    }
+    
+    private func avatarsModel() -> IAvatarsModel {
+        return AvatarsModel(pixabayService: serviceAssembly.pixabayService)
     }
     
 }

@@ -7,6 +7,7 @@
 //
 
 class CoreAssembly: ICoreAssembly {
-    lazy var networkManager: IConversationManager = FirebaseConversation()
+    lazy var conversationManager: IConversationManager = FirebaseConversation()
     lazy var storageManager: IStorageManager = StorageManager()
+    lazy var requestSender: IRequestSender = RequestSender()
 }

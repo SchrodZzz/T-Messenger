@@ -22,6 +22,23 @@
 		201BAE832430A61E00217B1A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE812430A61E00217B1A /* Model.xcdatamodeld */; };
 		201BAE852431043700217B1A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE842431043700217B1A /* CoreDataStack.swift */; };
 		201BAE892431319A00217B1A /* CoreData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE882431319A00217B1A /* CoreData+Extensions.swift */; };
+		2041740C244C7A7800EBCF47 /* PixabayImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041740B244C7A7800EBCF47 /* PixabayImage.swift */; };
+		2041740F244C7BFA00EBCF47 /* PixabayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041740E244C7BFA00EBCF47 /* PixabayResponse.swift */; };
+		20417413244C7ED300EBCF47 /* IRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417412244C7ED300EBCF47 /* IRequestSender.swift */; };
+		20417415244C7F1400EBCF47 /* IRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417414244C7F1400EBCF47 /* IRequest.swift */; };
+		20417417244C7F7400EBCF47 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417416244C7F7400EBCF47 /* RequestSender.swift */; };
+		20417419244C818F00EBCF47 /* PixabayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417418244C818F00EBCF47 /* PixabayRequest.swift */; };
+		2041741B244C838A00EBCF47 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041741A244C838A00EBCF47 /* ImageRequest.swift */; };
+		20417420244C874600EBCF47 /* IPixabayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041741F244C874600EBCF47 /* IPixabayService.swift */; };
+		20417422244C875500EBCF47 /* PixabayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417421244C875500EBCF47 /* PixabayService.swift */; };
+		20417424244C87AB00EBCF47 /* RequestsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417423244C87AB00EBCF47 /* RequestsFactory.swift */; };
+		20417429244C94B700EBCF47 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417428244C94B700EBCF47 /* AvatarCell.swift */; };
+		2041742B244C94F700EBCF47 /* AvatarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2041742A244C94F700EBCF47 /* AvatarCell.xib */; };
+		2041742E244C953700EBCF47 /* AvatarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041742D244C953700EBCF47 /* AvatarsModel.swift */; };
+		20417433244C957C00EBCF47 /* AvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417431244C957C00EBCF47 /* AvatarsViewController.swift */; };
+		20417434244C957C00EBCF47 /* Avatars.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20417432244C957C00EBCF47 /* Avatars.xib */; };
+		20417436244C95B600EBCF47 /* Avatars+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417435244C95B600EBCF47 /* Avatars+Delegates.swift */; };
+		20417438244C95C900EBCF47 /* Avatars+DataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417437244C95C900EBCF47 /* Avatars+DataSources.swift */; };
 		2050A4322426788F0028318C /* MessageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A4312426788F0028318C /* MessageStruct.swift */; };
 		2050A43524267B2D0028318C /* IConversationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43424267B2D0028318C /* IConversationManager.swift */; };
 		2050A43724267B3B0028318C /* FirebaseConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43624267B3B0028318C /* FirebaseConversation.swift */; };
@@ -76,6 +93,23 @@
 		201BAE822430A61E00217B1A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		201BAE842431043700217B1A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		201BAE882431319A00217B1A /* CoreData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Extensions.swift"; sourceTree = "<group>"; };
+		2041740B244C7A7800EBCF47 /* PixabayImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayImage.swift; sourceTree = "<group>"; };
+		2041740E244C7BFA00EBCF47 /* PixabayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayResponse.swift; sourceTree = "<group>"; };
+		20417412244C7ED300EBCF47 /* IRequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRequestSender.swift; sourceTree = "<group>"; };
+		20417414244C7F1400EBCF47 /* IRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRequest.swift; sourceTree = "<group>"; };
+		20417416244C7F7400EBCF47 /* RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
+		20417418244C818F00EBCF47 /* PixabayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayRequest.swift; sourceTree = "<group>"; };
+		2041741A244C838A00EBCF47 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
+		2041741F244C874600EBCF47 /* IPixabayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPixabayService.swift; sourceTree = "<group>"; };
+		20417421244C875500EBCF47 /* PixabayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayService.swift; sourceTree = "<group>"; };
+		20417423244C87AB00EBCF47 /* RequestsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsFactory.swift; sourceTree = "<group>"; };
+		20417428244C94B700EBCF47 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		2041742A244C94F700EBCF47 /* AvatarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarCell.xib; sourceTree = "<group>"; };
+		2041742D244C953700EBCF47 /* AvatarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarsModel.swift; sourceTree = "<group>"; };
+		20417431244C957C00EBCF47 /* AvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarsViewController.swift; sourceTree = "<group>"; };
+		20417432244C957C00EBCF47 /* Avatars.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Avatars.xib; sourceTree = "<group>"; };
+		20417435244C95B600EBCF47 /* Avatars+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Avatars+Delegates.swift"; sourceTree = "<group>"; };
+		20417437244C95C900EBCF47 /* Avatars+DataSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Avatars+DataSources.swift"; sourceTree = "<group>"; };
 		2050A4312426788F0028318C /* MessageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStruct.swift; sourceTree = "<group>"; };
 		2050A43424267B2D0028318C /* IConversationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IConversationManager.swift; sourceTree = "<group>"; };
 		2050A43624267B3B0028318C /* FirebaseConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConversation.swift; sourceTree = "<group>"; };
@@ -165,6 +199,83 @@
 			path = StorageManager;
 			sourceTree = "<group>";
 		};
+		20417407244C770E00EBCF47 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				2041740A244C790800EBCF47 /* RequestManager */,
+				20417409244C78BE00EBCF47 /* Requests */,
+				20417408244C78B500EBCF47 /* Objects */,
+				20417423244C87AB00EBCF47 /* RequestsFactory.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		20417408244C78B500EBCF47 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2041740D244C7BB100EBCF47 /* Pixabay */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		20417409244C78BE00EBCF47 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				20417414244C7F1400EBCF47 /* IRequest.swift */,
+				20417418244C818F00EBCF47 /* PixabayRequest.swift */,
+				2041741A244C838A00EBCF47 /* ImageRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		2041740A244C790800EBCF47 /* RequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				20417412244C7ED300EBCF47 /* IRequestSender.swift */,
+				20417416244C7F7400EBCF47 /* RequestSender.swift */,
+			);
+			path = RequestManager;
+			sourceTree = "<group>";
+		};
+		2041740D244C7BB100EBCF47 /* Pixabay */ = {
+			isa = PBXGroup;
+			children = (
+				2041740E244C7BFA00EBCF47 /* PixabayResponse.swift */,
+				2041740B244C7A7800EBCF47 /* PixabayImage.swift */,
+			);
+			path = Pixabay;
+			sourceTree = "<group>";
+		};
+		2041741E244C871F00EBCF47 /* PixabayService */ = {
+			isa = PBXGroup;
+			children = (
+				2041741F244C874600EBCF47 /* IPixabayService.swift */,
+				20417421244C875500EBCF47 /* PixabayService.swift */,
+			);
+			path = PixabayService;
+			sourceTree = "<group>";
+		};
+		20417427244C949F00EBCF47 /* AvatarCell */ = {
+			isa = PBXGroup;
+			children = (
+				20417428244C94B700EBCF47 /* AvatarCell.swift */,
+				2041742A244C94F700EBCF47 /* AvatarCell.xib */,
+			);
+			path = AvatarCell;
+			sourceTree = "<group>";
+		};
+		2041742C244C950C00EBCF47 /* AvatarsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2041742D244C953700EBCF47 /* AvatarsModel.swift */,
+				20417431244C957C00EBCF47 /* AvatarsViewController.swift */,
+				20417435244C95B600EBCF47 /* Avatars+Delegates.swift */,
+				20417437244C95C900EBCF47 /* Avatars+DataSources.swift */,
+				20417432244C957C00EBCF47 /* Avatars.xib */,
+			);
+			path = AvatarsViewController;
+			sourceTree = "<group>";
+		};
 		2050A43324267B0A0028318C /* ConversationManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				20DDAD682443331000CCBE25 /* ChatCell */,
+				20417427244C949F00EBCF47 /* AvatarCell */,
 				20DDAD692443332000CCBE25 /* MessageCell */,
 				20CCD7B1240C1D1200C6C9A6 /* IConfigurableView.swift */,
 			);
@@ -218,6 +330,7 @@
 			children = (
 				20DDAD8124435F2B00CCBE25 /* Assembly */,
 				20DDAD5D24432D0400CCBE25 /* ConversationService */,
+				2041741E244C871F00EBCF47 /* PixabayService */,
 				20DDAD89244363C000CCBE25 /* StorageService */,
 			);
 			path = "2. ServiceLayer";
@@ -230,6 +343,7 @@
 				20DDAD7724434C2000CCBE25 /* Extensions */,
 				20751F23240C0183009E5780 /* DataModels */,
 				2050A43324267B0A0028318C /* ConversationManager */,
+				20417407244C770E00EBCF47 /* NetworkManager */,
 				201BAE7A2430760F00217B1A /* StorageManager */,
 			);
 			path = "3. CoreLayer";
@@ -267,6 +381,7 @@
 			children = (
 				20751F24240C02D8009E5780 /* Cells */,
 				20DDAD5A24431FB300CCBE25 /* ProfileViewController */,
+				2041742C244C950C00EBCF47 /* AvatarsViewController */,
 				20DDAD5B24431FBC00CCBE25 /* AllChannelsViewController */,
 				20DDAD5C24431FC500CCBE25 /* ChannelViewController */,
 			);
@@ -469,7 +584,9 @@
 			files = (
 				201A4EA023F671610036B7FC /* LaunchScreen.storyboard in Resources */,
 				20DDAD9D2443AA0100CCBE25 /* ChatCell.xib in Resources */,
+				2041742B244C94F700EBCF47 /* AvatarCell.xib in Resources */,
 				20AB9067243A4C7700DD509A /* GoogleService-Info.plist in Resources */,
+				20417434244C957C00EBCF47 /* Avatars.xib in Resources */,
 				201A4E9D23F671610036B7FC /* Assets.xcassets in Resources */,
 				20DDAD9B2443A56F00CCBE25 /* AllChannels.xib in Resources */,
 				2002A3E92443B3C500B50B12 /* Channel.xib in Resources */,
@@ -546,6 +663,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2050A4322426788F0028318C /* MessageStruct.swift in Sources */,
+				20417417244C7F7400EBCF47 /* RequestSender.swift in Sources */,
 				20DDAD8424435F8200CCBE25 /* ICoreAssembly.swift in Sources */,
 				2050A43524267B2D0028318C /* IConversationManager.swift in Sources */,
 				201A4E9823F6715D0036B7FC /* ProfileViewController.swift in Sources */,
@@ -555,16 +673,23 @@
 				20DDAD7924434C3300CCBE25 /* Date+Formatter.swift in Sources */,
 				201A4E9423F6715D0036B7FC /* AppDelegate.swift in Sources */,
 				201BAE7C24307E8600217B1A /* StorageManager.swift in Sources */,
+				2041740C244C7A7800EBCF47 /* PixabayImage.swift in Sources */,
 				201BAE7E24307E9100217B1A /* IStorageManager.swift in Sources */,
 				200EBDA9240C1B3000D97EB5 /* MessageCell.swift in Sources */,
+				20417420244C874600EBCF47 /* IPixabayService.swift in Sources */,
 				20DDAD632443303500CCBE25 /* AllChannels+DataSources.swift in Sources */,
 				2050A43B242758B30028318C /* NotificationMethods.swift in Sources */,
+				20417415244C7F1400EBCF47 /* IRequest.swift in Sources */,
 				20DDAD7D24435BF200CCBE25 /* FirebaseService.swift in Sources */,
 				200EBD9E240C051400D97EB5 /* ChatCell.swift in Sources */,
+				20417424244C87AB00EBCF47 /* RequestsFactory.swift in Sources */,
 				20DDAD7424434ABA00CCBE25 /* AllChannelsModel.swift in Sources */,
 				20CCD7B2240C1D1200C6C9A6 /* IConfigurableView.swift in Sources */,
 				201BAE852431043700217B1A /* CoreDataStack.swift in Sources */,
+				2041742E244C953700EBCF47 /* AvatarsModel.swift in Sources */,
+				20417436244C95B600EBCF47 /* Avatars+Delegates.swift in Sources */,
 				20DDAD8D244364BC00CCBE25 /* StorageService.swift in Sources */,
+				20417438244C95C900EBCF47 /* Avatars+DataSources.swift in Sources */,
 				20DDAD7F24435EBC00CCBE25 /* RootAssembly.swift in Sources */,
 				20DDAD7224434AAB00CCBE25 /* ProfileModel.swift in Sources */,
 				20DDAD8624435F9600CCBE25 /* CoreAssembly.swift in Sources */,
@@ -572,15 +697,22 @@
 				20DDAD8F2443658800CCBE25 /* ServicesAssembly.swift in Sources */,
 				20751F21240C0167009E5780 /* ChannelViewController.swift in Sources */,
 				20DDAD5F24432EA500CCBE25 /* Profile+Delegates.swift in Sources */,
+				20417419244C818F00EBCF47 /* PixabayRequest.swift in Sources */,
 				20DDAD952443830A00CCBE25 /* PresentationAssembly.swift in Sources */,
+				20417422244C875500EBCF47 /* PixabayService.swift in Sources */,
 				20DDAD65244330BF00CCBE25 /* Channel+Delegates.swift in Sources */,
+				20417413244C7ED300EBCF47 /* IRequestSender.swift in Sources */,
+				2041741B244C838A00EBCF47 /* ImageRequest.swift in Sources */,
 				20DDAD8B244364B300CCBE25 /* IStorageService.swift in Sources */,
 				20DDAD882443623C00CCBE25 /* IServicesAssembly.swift in Sources */,
+				20417429244C94B700EBCF47 /* AvatarCell.swift in Sources */,
 				20751F1F240C0148009E5780 /* AllChannelsViewController.swift in Sources */,
+				20417433244C957C00EBCF47 /* AvatarsViewController.swift in Sources */,
 				20DDAD6124432FCF00CCBE25 /* AllChannels+Delegates.swift in Sources */,
 				20DDAD93244382A900CCBE25 /* IPresentationAssembly.swift in Sources */,
 				20DDAD9124437CE500CCBE25 /* ChannelStruct.swift in Sources */,
 				2099AACA241ECA2900B7D7B9 /* CustomAnimations.swift in Sources */,
+				2041740F244C7BFA00EBCF47 /* PixabayResponse.swift in Sources */,
 				20DDAD7B24435BCD00CCBE25 /* IConversationService.swift in Sources */,
 				201BAE892431319A00217B1A /* CoreData+Extensions.swift in Sources */,
 			);
@@ -726,7 +858,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9;
+				MARKETING_VERSION = 0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -747,7 +879,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9;
+				MARKETING_VERSION = 0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

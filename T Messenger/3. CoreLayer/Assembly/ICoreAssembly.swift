@@ -7,6 +7,7 @@
 //
 
 protocol ICoreAssembly {
-    var networkManager: IConversationManager { get }
+    var conversationManager: IConversationManager { get }
     var storageManager: IStorageManager { get }
+    var requestSender: IRequestSender { get }
 }

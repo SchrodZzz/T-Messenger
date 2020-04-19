@@ -9,4 +9,5 @@
 protocol IServicesAssembly {
     var conversationService: IConversationService { get }
     var storageService: IStorageService { get }
+    var pixabayService: IPixabayService { get }
 }

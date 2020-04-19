@@ -34,6 +34,20 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     }
 }
 
+// MARK: - IAvatarsControllerDelegate
+
+extension ProfileViewController: IAvatarsControllerDelegate {
+    func didFinishAvatarSelection(with imageData: Data?) {
+        if let imageData = imageData, let image = UIImage(data: imageData) {
+            DispatchQueue.main.async {
+                self.userImageView.image = image
+                self.profileIsChanged = true
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+}
+
 // MARK: - UITextViewDelegate
 
 extension ProfileViewController: UITextViewDelegate {

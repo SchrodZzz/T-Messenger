@@ -26,13 +26,15 @@ class ProfileViewController: UIViewController {
     private lazy var notificationMethods: NotificationMethods = NotificationMethods(for: self)
 
     private let model: IProfileModel
+    private let presentationAssembly: IPresentationAssembly
     private var profile: User?
     private var editModeIsActive = false
 
     // MARK: - Initialization
 
-    init(model: IProfileModel) {
+    init(model: IProfileModel, presentationAssembly: IPresentationAssembly) {
         self.model = model
+        self.presentationAssembly = presentationAssembly
         super.init(nibName: "Profile", bundle: nil)
     }
 
@@ -112,10 +114,16 @@ class ProfileViewController: UIViewController {
             self.profileIsChanged = true
             self.showImagePickerController(sourceType: .camera)
         })
+        let chooseImageFromInternetAction = UIAlertAction(title: "From the internet", style: .default, handler: { _ in
+            let avatarsVC = self.presentationAssembly.avatarsViewController()
+            avatarsVC.delegate = self
+            self.present(avatarsVC, animated: true, completion: nil)
+        })
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         actionSheet.addAction(chooseImageFromLibraryAction)
         actionSheet.addAction(takeImageWithCameraAction)
+        actionSheet.addAction(chooseImageFromInternetAction)
         actionSheet.addAction(cancelAction)
 
         present(actionSheet, animated: true, completion: nil)
