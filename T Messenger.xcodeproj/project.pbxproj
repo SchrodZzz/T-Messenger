@@ -23,8 +23,8 @@
 		201BAE852431043700217B1A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE842431043700217B1A /* CoreDataStack.swift */; };
 		201BAE892431319A00217B1A /* CoreData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE882431319A00217B1A /* CoreData+Extensions.swift */; };
 		2050A4322426788F0028318C /* MessageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A4312426788F0028318C /* MessageStruct.swift */; };
-		2050A43524267B2D0028318C /* INetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43424267B2D0028318C /* INetworkManager.swift */; };
-		2050A43724267B3B0028318C /* FirebaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43624267B3B0028318C /* FirebaseNetwork.swift */; };
+		2050A43524267B2D0028318C /* IConversationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43424267B2D0028318C /* IConversationManager.swift */; };
+		2050A43724267B3B0028318C /* FirebaseConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43624267B3B0028318C /* FirebaseConversation.swift */; };
 		2050A43B242758B30028318C /* NotificationMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43A242758B30028318C /* NotificationMethods.swift */; };
 		20751F1F240C0148009E5780 /* AllChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F1E240C0148009E5780 /* AllChannelsViewController.swift */; };
 		20751F21240C0167009E5780 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F20240C0167009E5780 /* ChannelViewController.swift */; };
@@ -77,8 +77,8 @@
 		201BAE842431043700217B1A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		201BAE882431319A00217B1A /* CoreData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Extensions.swift"; sourceTree = "<group>"; };
 		2050A4312426788F0028318C /* MessageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStruct.swift; sourceTree = "<group>"; };
-		2050A43424267B2D0028318C /* INetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INetworkManager.swift; sourceTree = "<group>"; };
-		2050A43624267B3B0028318C /* FirebaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNetwork.swift; sourceTree = "<group>"; };
+		2050A43424267B2D0028318C /* IConversationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IConversationManager.swift; sourceTree = "<group>"; };
+		2050A43624267B3B0028318C /* FirebaseConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConversation.swift; sourceTree = "<group>"; };
 		2050A43A242758B30028318C /* NotificationMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMethods.swift; sourceTree = "<group>"; };
 		20751F1E240C0148009E5780 /* AllChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChannelsViewController.swift; sourceTree = "<group>"; };
 		20751F20240C0167009E5780 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
@@ -165,13 +165,13 @@
 			path = StorageManager;
 			sourceTree = "<group>";
 		};
-		2050A43324267B0A0028318C /* NetworkManager */ = {
+		2050A43324267B0A0028318C /* ConversationManager */ = {
 			isa = PBXGroup;
 			children = (
-				2050A43424267B2D0028318C /* INetworkManager.swift */,
-				2050A43624267B3B0028318C /* FirebaseNetwork.swift */,
+				2050A43424267B2D0028318C /* IConversationManager.swift */,
+				2050A43624267B3B0028318C /* FirebaseConversation.swift */,
 			);
-			path = NetworkManager;
+			path = ConversationManager;
 			sourceTree = "<group>";
 		};
 		20751F23240C0183009E5780 /* DataModels */ = {
@@ -229,7 +229,7 @@
 				20DDAD8024435F1A00CCBE25 /* Assembly */,
 				20DDAD7724434C2000CCBE25 /* Extensions */,
 				20751F23240C0183009E5780 /* DataModels */,
-				2050A43324267B0A0028318C /* NetworkManager */,
+				2050A43324267B0A0028318C /* ConversationManager */,
 				201BAE7A2430760F00217B1A /* StorageManager */,
 			);
 			path = "3. CoreLayer";
@@ -547,9 +547,9 @@
 			files = (
 				2050A4322426788F0028318C /* MessageStruct.swift in Sources */,
 				20DDAD8424435F8200CCBE25 /* ICoreAssembly.swift in Sources */,
-				2050A43524267B2D0028318C /* INetworkManager.swift in Sources */,
+				2050A43524267B2D0028318C /* IConversationManager.swift in Sources */,
 				201A4E9823F6715D0036B7FC /* ProfileViewController.swift in Sources */,
-				2050A43724267B3B0028318C /* FirebaseNetwork.swift in Sources */,
+				2050A43724267B3B0028318C /* FirebaseConversation.swift in Sources */,
 				20DDAD7624434AC900CCBE25 /* ChannelModel.swift in Sources */,
 				20DDAD67244330DE00CCBE25 /* Channel+DataSources.swift in Sources */,
 				20DDAD7924434C3300CCBE25 /* Date+Formatter.swift in Sources */,

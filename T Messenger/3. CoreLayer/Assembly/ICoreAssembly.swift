@@ -7,6 +7,6 @@
 //
 
 protocol ICoreAssembly {
-    var networkManager: INetworkManager { get }
+    var networkManager: IConversationManager { get }
     var storageManager: IStorageManager { get }
 }

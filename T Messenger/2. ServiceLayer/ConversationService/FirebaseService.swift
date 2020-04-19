@@ -10,9 +10,9 @@ import Firebase
 
 class FirebaseService: IConversationService {
 
-    private let networkManager: INetworkManager
+    private let networkManager: IConversationManager
 
-    init(networkManager: INetworkManager) {
+    init(networkManager: IConversationManager) {
         self.networkManager = networkManager
     }
 

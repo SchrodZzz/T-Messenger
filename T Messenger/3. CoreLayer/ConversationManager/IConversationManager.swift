@@ -8,7 +8,7 @@
 
 import Firebase
 
-protocol INetworkManager {
+protocol IConversationManager {
 
     #warning("TODO: think about removing Firebase specific data from here")
     func fetchChannels(completion: @escaping (Error?, [DocumentChange]?) -> Void)

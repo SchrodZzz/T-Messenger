@@ -16,7 +16,7 @@ class StorageManager: IStorageManager {
     lazy var saveContext: NSManagedObjectContext = CoreDataStack.shared.saveContext
 
     private let coreDataStack = CoreDataStack.shared
-    private let networkManager: INetworkManager = FirebaseNetwork()
+    private let networkManager: IConversationManager = FirebaseConversation()
 
     init() {
         loadProfile { profile in

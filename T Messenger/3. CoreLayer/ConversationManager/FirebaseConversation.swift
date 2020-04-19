@@ -8,7 +8,7 @@
 
 import Firebase
 
-class FirebaseNetwork: INetworkManager {
+class FirebaseConversation: IConversationManager {
     private var channelIdentifier: String?
 
     private lazy var db = Firestore.firestore()
