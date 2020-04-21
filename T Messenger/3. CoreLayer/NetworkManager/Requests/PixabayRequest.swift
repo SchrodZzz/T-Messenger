@@ -13,7 +13,7 @@ class PixabayRequest: IRequest {
     private let apiKey: String
     private var getParameters: [String: String] {
         return ["key": apiKey,
-                "per_page": "100",
+                "per_page": "102",
                 "safesearch": "true",
                 "order": "popular",
                 "category": "science"]
