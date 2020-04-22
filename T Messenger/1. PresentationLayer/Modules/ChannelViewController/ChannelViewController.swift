@@ -42,7 +42,7 @@ class ChannelViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         channelTableView.register(UINib(nibName: "inMessageCell", bundle: nil), forCellReuseIdentifier: "inMessageCell")
         channelTableView.register(UINib(nibName: "outMessageCell", bundle: nil), forCellReuseIdentifier: "outMessageCell")
 
@@ -68,11 +68,11 @@ class ChannelViewController: UIViewController {
 
         sendButton.layer.cornerRadius = 10.0
     }
-    
+
     #warning("TODO: make scroll to bottom more smoothy")
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         scrollToBottom()
     }
 
@@ -123,17 +123,16 @@ class ChannelViewController: UIViewController {
     // MARK: - Private Methods
 
     private func changeSendButtonState(to isEnabled: Bool) {
+        if sendButton.isEnabled != isEnabled {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse],
+                           animations: {
+                               self.sendButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+                           }, completion: { _ in
+                               self.sendButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+                           })
+        }
         sendButton.isEnabled = isEnabled
         sendButton.backgroundColor = isEnabled ? .blue : .systemGray
     }
 
-}
-
-// MARK: - UITextFieldDelegate
-
-extension ChannelViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
-    }
 }

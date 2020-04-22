@@ -43,3 +43,12 @@ extension ChannelViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
+
+// MARK: - UITextFieldDelegate
+
+extension ChannelViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+}
