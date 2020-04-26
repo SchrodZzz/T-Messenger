@@ -22,6 +22,7 @@
 		201BAE832430A61E00217B1A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE812430A61E00217B1A /* Model.xcdatamodeld */; };
 		201BAE852431043700217B1A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE842431043700217B1A /* CoreDataStack.swift */; };
 		201BAE892431319A00217B1A /* CoreData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BAE882431319A00217B1A /* CoreData+Extensions.swift */; };
+		2039F8AB24543435000E7EBB /* AppDelegate+GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2039F8AA24543435000E7EBB /* AppDelegate+GestureRecognizer.swift */; };
 		2041740C244C7A7800EBCF47 /* PixabayImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041740B244C7A7800EBCF47 /* PixabayImage.swift */; };
 		2041740F244C7BFA00EBCF47 /* PixabayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041740E244C7BFA00EBCF47 /* PixabayResponse.swift */; };
 		20417413244C7ED300EBCF47 /* IRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20417412244C7ED300EBCF47 /* IRequestSender.swift */; };
@@ -45,8 +46,9 @@
 		2050A43B242758B30028318C /* NotificationMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050A43A242758B30028318C /* NotificationMethods.swift */; };
 		20751F1F240C0148009E5780 /* AllChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F1E240C0148009E5780 /* AllChannelsViewController.swift */; };
 		20751F21240C0167009E5780 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F20240C0167009E5780 /* ChannelViewController.swift */; };
-		2099AACA241ECA2900B7D7B9 /* CustomAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2099AAC9241ECA2900B7D7B9 /* CustomAnimations.swift */; };
 		20AB9067243A4C7700DD509A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20AB9066243A4C7700DD509A /* GoogleService-Info.plist */; };
+		20AF21B824559F4300C10B9D /* CustomAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AF21B724559F4300C10B9D /* CustomAnimations.swift */; };
+		20AF21BA2455A10100C10B9D /* PresentationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AF21B92455A10100C10B9D /* PresentationUtils.swift */; };
 		20CCD7B2240C1D1200C6C9A6 /* IConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CCD7B1240C1D1200C6C9A6 /* IConfigurableView.swift */; };
 		20DDAD5F24432EA500CCBE25 /* Profile+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD5E24432EA500CCBE25 /* Profile+Delegates.swift */; };
 		20DDAD6124432FCF00CCBE25 /* AllChannels+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD6024432FCF00CCBE25 /* AllChannels+Delegates.swift */; };
@@ -93,6 +95,7 @@
 		201BAE822430A61E00217B1A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		201BAE842431043700217B1A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		201BAE882431319A00217B1A /* CoreData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Extensions.swift"; sourceTree = "<group>"; };
+		2039F8AA24543435000E7EBB /* AppDelegate+GestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+GestureRecognizer.swift"; sourceTree = "<group>"; };
 		2041740B244C7A7800EBCF47 /* PixabayImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayImage.swift; sourceTree = "<group>"; };
 		2041740E244C7BFA00EBCF47 /* PixabayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayResponse.swift; sourceTree = "<group>"; };
 		20417412244C7ED300EBCF47 /* IRequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRequestSender.swift; sourceTree = "<group>"; };
@@ -116,8 +119,9 @@
 		2050A43A242758B30028318C /* NotificationMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMethods.swift; sourceTree = "<group>"; };
 		20751F1E240C0148009E5780 /* AllChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChannelsViewController.swift; sourceTree = "<group>"; };
 		20751F20240C0167009E5780 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
-		2099AAC9241ECA2900B7D7B9 /* CustomAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimations.swift; sourceTree = "<group>"; };
 		20AB9066243A4C7700DD509A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		20AF21B724559F4300C10B9D /* CustomAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimations.swift; sourceTree = "<group>"; };
+		20AF21B92455A10100C10B9D /* PresentationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUtils.swift; sourceTree = "<group>"; };
 		20CCD7B1240C1D1200C6C9A6 /* IConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IConfigurableView.swift; sourceTree = "<group>"; };
 		20DDAD5E24432EA500CCBE25 /* Profile+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+Delegates.swift"; sourceTree = "<group>"; };
 		20DDAD6024432FCF00CCBE25 /* AllChannels+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllChannels+Delegates.swift"; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 				20DDAD5924431F9800CCBE25 /* Modules */,
 				20DDAD5824431F7500CCBE25 /* Notifications */,
 				20DDAD5724431F5A00CCBE25 /* Animations */,
+				20AF21B92455A10100C10B9D /* PresentationUtils.swift */,
 			);
 			path = "1. PresentationLayer";
 			sourceTree = "<group>";
@@ -363,7 +368,8 @@
 		20DDAD5724431F5A00CCBE25 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				2099AAC9241ECA2900B7D7B9 /* CustomAnimations.swift */,
+				2039F8AA24543435000E7EBB /* AppDelegate+GestureRecognizer.swift */,
+				20AF21B724559F4300C10B9D /* CustomAnimations.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				20DDAD8424435F8200CCBE25 /* ICoreAssembly.swift in Sources */,
 				2050A43524267B2D0028318C /* IConversationManager.swift in Sources */,
 				201A4E9823F6715D0036B7FC /* ProfileViewController.swift in Sources */,
+				2039F8AB24543435000E7EBB /* AppDelegate+GestureRecognizer.swift in Sources */,
 				2050A43724267B3B0028318C /* FirebaseConversation.swift in Sources */,
 				20DDAD7624434AC900CCBE25 /* ChannelModel.swift in Sources */,
 				20DDAD67244330DE00CCBE25 /* Channel+DataSources.swift in Sources */,
@@ -688,6 +695,7 @@
 				201BAE852431043700217B1A /* CoreDataStack.swift in Sources */,
 				2041742E244C953700EBCF47 /* AvatarsModel.swift in Sources */,
 				20417436244C95B600EBCF47 /* Avatars+Delegates.swift in Sources */,
+				20AF21B824559F4300C10B9D /* CustomAnimations.swift in Sources */,
 				20DDAD8D244364BC00CCBE25 /* StorageService.swift in Sources */,
 				20417438244C95C900EBCF47 /* Avatars+DataSources.swift in Sources */,
 				20DDAD7F24435EBC00CCBE25 /* RootAssembly.swift in Sources */,
@@ -700,6 +708,7 @@
 				20417419244C818F00EBCF47 /* PixabayRequest.swift in Sources */,
 				20DDAD952443830A00CCBE25 /* PresentationAssembly.swift in Sources */,
 				20417422244C875500EBCF47 /* PixabayService.swift in Sources */,
+				20AF21BA2455A10100C10B9D /* PresentationUtils.swift in Sources */,
 				20DDAD65244330BF00CCBE25 /* Channel+Delegates.swift in Sources */,
 				20417413244C7ED300EBCF47 /* IRequestSender.swift in Sources */,
 				2041741B244C838A00EBCF47 /* ImageRequest.swift in Sources */,
@@ -711,7 +720,6 @@
 				20DDAD6124432FCF00CCBE25 /* AllChannels+Delegates.swift in Sources */,
 				20DDAD93244382A900CCBE25 /* IPresentationAssembly.swift in Sources */,
 				20DDAD9124437CE500CCBE25 /* ChannelStruct.swift in Sources */,
-				2099AACA241ECA2900B7D7B9 /* CustomAnimations.swift in Sources */,
 				2041740F244C7BFA00EBCF47 /* PixabayResponse.swift in Sources */,
 				20DDAD7B24435BCD00CCBE25 /* IConversationService.swift in Sources */,
 				201BAE892431319A00217B1A /* CoreData+Extensions.swift in Sources */,
@@ -858,7 +866,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.10;
+				MARKETING_VERSION = 0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -879,7 +887,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.10;
+				MARKETING_VERSION = 0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.tinkoff.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

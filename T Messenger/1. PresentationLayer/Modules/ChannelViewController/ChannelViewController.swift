@@ -124,12 +124,7 @@ class ChannelViewController: UIViewController {
 
     private func changeSendButtonState(to isEnabled: Bool) {
         if sendButton.isEnabled != isEnabled {
-            UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse],
-                           animations: {
-                               self.sendButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
-                           }, completion: { _ in
-                               self.sendButton.transform = CGAffineTransform(scaleX: 1, y: 1)
-                           })
+            CustomAnimations.highlight(sendButton)
         }
         sendButton.isEnabled = isEnabled
         sendButton.backgroundColor = isEnabled ? .blue : .systemGray

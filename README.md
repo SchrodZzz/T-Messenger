@@ -1,5 +1,9 @@
 #  T Messenger
 ## Versions
+#### v0.11
+```
+Add some animations
+``` 
 #### v0.10
 ```
 Add NetworkManager and option for loading profile avatar from the internet

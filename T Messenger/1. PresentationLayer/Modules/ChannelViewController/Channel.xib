@@ -30,15 +30,15 @@
                     </connections>
                 </tableView>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YGN-vN-xQO">
-                    <rect key="frame" x="20" y="820" width="306" height="34"/>
+                    <rect key="frame" x="20" y="820" width="311" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ms1-W7-WcB">
-                    <rect key="frame" x="334" y="820" width="60" height="34"/>
+                    <rect key="frame" x="339" y="820" width="55" height="34"/>
                     <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="kEM-1f-KCF"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="kEM-1f-KCF"/>
                     </constraints>
                     <state key="normal" title="Send">
                         <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

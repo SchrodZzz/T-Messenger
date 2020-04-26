@@ -78,7 +78,7 @@ class ProfileViewController: UIViewController {
             if profileIsChanged {
                 saveProfile()
             } else {
-                CustomAnimations.shakeButton(profileEditButton)
+                CustomAnimations.shake(profileEditButton)
             }
         } else {
             changeUserInteraction(enabled: true)
