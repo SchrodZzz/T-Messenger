@@ -1,5 +1,21 @@
 #  T Messenger
 ## Versions
+#### v0.8
+```
+Add CoreData support for channels and messages
+``` 
+#### v0.7
+```
+Add CoreData to profileVC
+``` 
+#### v0.6
+```
+Add firebase support
+``` 
+#### v0.5
+```
+Add edit mode to profile view controller
+``` 
 #### v0.4
 ```
 Add playground

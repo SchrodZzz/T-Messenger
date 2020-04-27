@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="x6i-Aw-nlV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TinkoffLogo" translatesAutoresizingMaskIntoConstraints="NO" id="x6i-Aw-nlV">
                                 <rect key="frame" x="138" y="384" width="138" height="138"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -24,7 +24,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="x6i-Aw-nlV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MrW-In-AUC"/>
                             <constraint firstItem="x6i-Aw-nlV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="340" id="a8M-aY-8KA"/>
@@ -39,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera" width="128" height="128"/>
+        <image name="TinkoffLogo" width="500" height="412.5"/>
     </resources>
 </document>

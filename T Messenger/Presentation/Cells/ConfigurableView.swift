@@ -1,5 +1,5 @@
 //
-//  Utils.swift
+//  ConfigurableView.swift
 //  T Messenger
 //
 //  Created by Suspect on 01.03.2020.
@@ -8,8 +8,15 @@
 
 import Foundation
 
+protocol ConfigurableView {
+
+    associatedtype ConfigurationModel
+
+    func configure(with model: ConfigurationModel)
+}
+
 extension Date {
-    func dateToString() -> String {
+    func toString() -> String {
         let dateFormatter = DateFormatter()
 
         if Calendar.current.isDateInToday(self) {

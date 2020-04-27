@@ -3,12 +3,10 @@ import Foundation
 public class Developer {
     public var name: String?
     public weak var manager: ProductManager?
-    public weak var company: Company?
 
-    public init(name: String? = nil, manager: ProductManager? = nil, company: Company? = nil) {
+    public init(name: String? = nil, manager: ProductManager? = nil) {
         self.name = name
         self.manager = manager
-        self.company = company
     }
 
     deinit {
