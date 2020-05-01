@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+#warning("don't use auto-generation")
 extension User {
     static func getRequest() -> NSFetchRequest<User>? {
         return NSFetchRequest<User>(entityName: "User")
@@ -62,6 +63,18 @@ extension Message {
         do {
             let results = try context.fetch(fetchRequest)
             return results.first
+        } catch {
+            print("Failed to fetch message: \(error)")
+            return(nil)
+        }
+    }
+    
+    static func getAll(in context: NSManagedObjectContext, with predicate: NSPredicate) -> [NSManagedObject]? {
+        guard let fetchRequest = getRequest() else { return nil }
+        fetchRequest.predicate = predicate
+        do {
+            let results = try context.fetch(fetchRequest)
+            return results
         } catch {
             print("Failed to fetch message: \(error)")
             return(nil)

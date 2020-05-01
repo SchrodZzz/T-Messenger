@@ -52,6 +52,11 @@ class StorageService: IStorageService {
         if let channel = channel as? Channel, let user = storageManager.getUser() {
             user.removeFromChannel(channel)
         }
+        if let messages = Message.getAll(in: storageManager.saveContext, with: NSPredicate(format: "channel.identifier == %@", id)) {
+            for message in messages {
+                storageManager.saveContext.delete(message)
+            }
+        }
         storageManager.saveContext.delete(channel)
     }
 
