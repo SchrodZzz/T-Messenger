@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-#warning("don't use auto-generation")
+#warning("TODO: remove auto-generation")
 extension User {
     static func getRequest() -> NSFetchRequest<User>? {
         return NSFetchRequest<User>(entityName: "User")

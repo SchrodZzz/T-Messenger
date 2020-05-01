@@ -13,7 +13,7 @@ protocol IConversationService {
     func fetchMessages(fromChannel id: String, completion: @escaping (Error?, [DocumentChange]?) -> Void)
 
     func createChannel(named name: String, firstMessage: MessageStruct)
-    func removeChannel(id: String?)
+    func removeChannel(id: String?, completion: ((Error) -> Void)?)
 
     func send(message: MessageStruct, toChannel id: String?)
 }

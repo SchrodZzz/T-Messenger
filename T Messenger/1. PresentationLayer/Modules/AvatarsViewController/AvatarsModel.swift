@@ -9,10 +9,11 @@
 import Foundation
 
 protocol IAvatarsModel {
-    func loadImages()
-    func loadImage(urlString: String, completion: @escaping (Data) -> Void)
     
     var delegate: IAvatarsModelDelegate? { get set }
+    
+    func loadImages()
+    func loadImage(urlString: String, completion: @escaping (Data) -> Void)
 }
 
 protocol IAvatarsModelDelegate: AnyObject {

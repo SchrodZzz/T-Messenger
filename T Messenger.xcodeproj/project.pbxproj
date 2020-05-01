@@ -50,6 +50,8 @@
 		20AF21B824559F4300C10B9D /* CustomAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AF21B724559F4300C10B9D /* CustomAnimations.swift */; };
 		20AF21BA2455A10100C10B9D /* PresentationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AF21B92455A10100C10B9D /* PresentationUtils.swift */; };
 		20CCD7B2240C1D1200C6C9A6 /* IConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CCD7B1240C1D1200C6C9A6 /* IConfigurableView.swift */; };
+		20D4B9C2245BECEF00491E11 /* Notificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D4B9C1245BECEF00491E11 /* Notificator.swift */; };
+		20D4B9C4245BEECB00491E11 /* String+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D4B9C3245BEECB00491E11 /* String+Formatter.swift */; };
 		20DDAD5F24432EA500CCBE25 /* Profile+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD5E24432EA500CCBE25 /* Profile+Delegates.swift */; };
 		20DDAD6124432FCF00CCBE25 /* AllChannels+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD6024432FCF00CCBE25 /* AllChannels+Delegates.swift */; };
 		20DDAD632443303500CCBE25 /* AllChannels+DataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD622443303500CCBE25 /* AllChannels+DataSources.swift */; };
@@ -123,6 +125,8 @@
 		20AF21B724559F4300C10B9D /* CustomAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimations.swift; sourceTree = "<group>"; };
 		20AF21B92455A10100C10B9D /* PresentationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUtils.swift; sourceTree = "<group>"; };
 		20CCD7B1240C1D1200C6C9A6 /* IConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IConfigurableView.swift; sourceTree = "<group>"; };
+		20D4B9C1245BECEF00491E11 /* Notificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificator.swift; sourceTree = "<group>"; };
+		20D4B9C3245BEECB00491E11 /* String+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formatter.swift"; sourceTree = "<group>"; };
 		20DDAD5E24432EA500CCBE25 /* Profile+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+Delegates.swift"; sourceTree = "<group>"; };
 		20DDAD6024432FCF00CCBE25 /* AllChannels+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllChannels+Delegates.swift"; sourceTree = "<group>"; };
 		20DDAD622443303500CCBE25 /* AllChannels+DataSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllChannels+DataSources.swift"; sourceTree = "<group>"; };
@@ -326,6 +330,7 @@
 				20DDAD5824431F7500CCBE25 /* Notifications */,
 				20DDAD5724431F5A00CCBE25 /* Animations */,
 				20AF21B92455A10100C10B9D /* PresentationUtils.swift */,
+				20D4B9C1245BECEF00491E11 /* Notificator.swift */,
 			);
 			path = "1. PresentationLayer";
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				20DDAD7824434C3300CCBE25 /* Date+Formatter.swift */,
+				20D4B9C3245BEECB00491E11 /* String+Formatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -672,6 +678,7 @@
 				20417417244C7F7400EBCF47 /* RequestSender.swift in Sources */,
 				20DDAD8424435F8200CCBE25 /* ICoreAssembly.swift in Sources */,
 				2050A43524267B2D0028318C /* IConversationManager.swift in Sources */,
+				20D4B9C4245BEECB00491E11 /* String+Formatter.swift in Sources */,
 				201A4E9823F6715D0036B7FC /* ProfileViewController.swift in Sources */,
 				2039F8AB24543435000E7EBB /* AppDelegate+GestureRecognizer.swift in Sources */,
 				2050A43724267B3B0028318C /* FirebaseConversation.swift in Sources */,
@@ -714,6 +721,7 @@
 				2041741B244C838A00EBCF47 /* ImageRequest.swift in Sources */,
 				20DDAD8B244364B300CCBE25 /* IStorageService.swift in Sources */,
 				20DDAD882443623C00CCBE25 /* IServicesAssembly.swift in Sources */,
+				20D4B9C2245BECEF00491E11 /* Notificator.swift in Sources */,
 				20417429244C94B700EBCF47 /* AvatarCell.swift in Sources */,
 				20751F1F240C0148009E5780 /* AllChannelsViewController.swift in Sources */,
 				20417433244C957C00EBCF47 /* AvatarsViewController.swift in Sources */,

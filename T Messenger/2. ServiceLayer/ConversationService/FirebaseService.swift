@@ -47,8 +47,8 @@ class FirebaseService: IConversationService {
         conversationManager.send(message: firstMessage, toChannel: id)
     }
 
-    func removeChannel(id: String?) {
-        conversationManager.removeChannel(id: id)
+    func removeChannel(id: String?, completion: ((Error) -> Void)?) {
+        conversationManager.removeChannel(id: id, completion: completion)
     }
 
     func send(message: MessageStruct, toChannel id: String?) {

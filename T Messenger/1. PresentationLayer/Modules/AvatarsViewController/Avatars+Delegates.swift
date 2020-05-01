@@ -20,7 +20,7 @@ extension AvatarsViewController: IAvatarsModelDelegate {
     }
 
     func show(error message: String) {
-        print(message)
+        Notificator.notifyUser(message, type: .error, in: self)
     }
 }
 

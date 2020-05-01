@@ -67,7 +67,6 @@ class CoreDataStack {
                 do {
                     try context.save()
                 } catch {
-                    print(error.localizedDescription)
                     completion(error)
                 }
             }

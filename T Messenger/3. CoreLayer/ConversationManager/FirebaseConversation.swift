@@ -55,10 +55,10 @@ class FirebaseConversation: IConversationManager {
         channelReference.addDocument(data: message.toDict)
     }
 
-    func removeChannel(id: String?) {
+    func removeChannel(id: String?, completion: ((Error) -> Void)?) {
         allChannelsReference.document(id ?? "").delete { err in
             if let err = err {
-                print("Channel deletion error: \(err)")
+                completion?(err)
             }
         }
     }

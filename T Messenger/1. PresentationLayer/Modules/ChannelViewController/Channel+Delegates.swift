@@ -26,7 +26,7 @@ extension ChannelViewController: NSFetchedResultsControllerDelegate {
                     at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
 
         guard let newIndexPath = newIndexPath else {
-            print("FetchedResultsController can't update object")
+            Notificator.notifyUser("FetchedResultsController can't update object", type: .error, in: self)
             return
         }
 
@@ -50,5 +50,13 @@ extension ChannelViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
+    }
+}
+
+// MARK: - IChannelModelDelegate
+
+extension ChannelViewController: IChannelModelDelegate {
+    func show(error message: String) {
+        Notificator.notifyUser(message, type: .error, in: self)
     }
 }

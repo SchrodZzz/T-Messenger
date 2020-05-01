@@ -9,6 +9,9 @@
 import CoreData
 
 protocol IChannelModel {
+    
+    var delegate: IChannelModelDelegate? { get set }
+    
     func fetchMessages(fromChannel id: String, completion: () -> Void)
 
     func sendMessage(content: String?, toChannel id: String?)
@@ -16,10 +19,16 @@ protocol IChannelModel {
     func getFetchedResultsController(fromChannel name: String?) -> NSFetchedResultsController<Message>
 }
 
+protocol IChannelModelDelegate: AnyObject {
+    func show(error message: String)
+}
+
 final class ChannelModel: IChannelModel {
 
     let storageService: IStorageService
     let conversationService: IConversationService
+    
+    weak var delegate: IChannelModelDelegate?
 
     init(storageService: IStorageService, conversationService: IConversationService) {
         self.storageService = storageService
@@ -29,7 +38,7 @@ final class ChannelModel: IChannelModel {
     func fetchMessages(fromChannel id: String, completion: () -> Void) {
         conversationService.fetchMessages(fromChannel: id) { [weak self] error, changes in
             if let error = error {
-                print("fetchChannels : \(error.localizedDescription)")
+                self?.delegate?.show(error: "fetchChannels : \(error.localizedDescription)")
             }
             if let changes = changes {
                 for change in changes {

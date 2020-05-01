@@ -9,6 +9,9 @@
 import CoreData
 
 protocol IAllChannelsModel {
+    
+    var delegate: IAllChannelsModelDelegate? { get set }
+    
     func fetchChannels()
 
     func createChannel(named channelName: String)
@@ -17,10 +20,16 @@ protocol IAllChannelsModel {
     func getFetchedResultsController() -> NSFetchedResultsController<Channel>
 }
 
+protocol IAllChannelsModelDelegate: AnyObject {
+    func show(error message: String)
+}
+
 final class AllChannelsModel: IAllChannelsModel {
 
     let storageService: IStorageService
     let conversationService: IConversationService
+    
+    weak var delegate: IAllChannelsModelDelegate?
 
     init(storageService: IStorageService, conversationService: IConversationService) {
         self.storageService = storageService
@@ -30,7 +39,7 @@ final class AllChannelsModel: IAllChannelsModel {
     func fetchChannels() {
         conversationService.fetchChannels { [weak self] error, change in
             if let error = error {
-                print("fetchChannels : \(error.localizedDescription)")
+                self?.delegate?.show(error: "fetchChannels : \(error.localizedDescription)")
             }
             if let change = change {
                 let doc = change.document
@@ -54,7 +63,9 @@ final class AllChannelsModel: IAllChannelsModel {
     }
 
     func removeChannel(id: String) {
-        conversationService.removeChannel(id: id)
+        conversationService.removeChannel(id: id) { [weak self] error in
+            self?.delegate?.show(error: "Channel delete error: \(error.localizedDescription)")
+        }
     }
 
     func getFetchedResultsController() -> NSFetchedResultsController<Channel> {

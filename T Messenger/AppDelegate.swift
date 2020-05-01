@@ -13,7 +13,6 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     #warning("TODO: refactor one more time (-;")
-    #warning("TODO: replace all prints with UIAlert")
     private let rootAssembly = RootAssembly()
 
     var window: UIWindow?

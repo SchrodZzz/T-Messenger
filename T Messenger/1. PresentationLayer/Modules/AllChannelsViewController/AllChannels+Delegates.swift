@@ -50,25 +50,25 @@ extension AllChannelsViewController: NSFetchedResultsControllerDelegate {
         switch type {
         case .insert:
             guard let newIndexPath = newIndexPath else {
-                print("FetchedResultsController can't insert object")
+                Notificator.notifyUser("FetchedResultsController can't insert object", type: .error, in: self)
                 return
             }
             allChannelsTableView.insertRows(at: [newIndexPath], with: .none)
         case .delete:
             guard let indexPath = indexPath else {
-                print("FetchedResultsController can't delete object")
+                Notificator.notifyUser("FetchedResultsController can't delete object", type: .error, in: self)
                 return
             }
             allChannelsTableView.deleteRows(at: [indexPath], with: .fade)
         case .update:
             guard let indexPath = indexPath else {
-                print("FetchedResultsController can't update object")
+                Notificator.notifyUser("FetchedResultsController can't update object", type: .error, in: self)
                 return
             }
             allChannelsTableView.reloadRows(at: [indexPath], with: .none)
         case .move:
             guard let indexPath = indexPath, let newIndexPath = newIndexPath else {
-                print("FetchedResultsController can't update object")
+                Notificator.notifyUser("FetchedResultsController can't move object", type: .error, in: self)
                 return
             }
             allChannelsTableView.insertRows(at: [newIndexPath], with: .fade)
@@ -87,5 +87,13 @@ extension AllChannelsViewController: NSFetchedResultsControllerDelegate {
         } else if type == .delete {
             allChannelsTableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
         }
+    }
+}
+
+// MARK: - IAllChannelsModelDelegate
+
+extension AllChannelsViewController: IAllChannelsModelDelegate {
+    func show(error message: String) {
+        Notificator.notifyUser(message, type: .error, in: self)
     }
 }

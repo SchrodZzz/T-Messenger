@@ -16,7 +16,7 @@ class AllChannelsViewController: UIViewController {
     @IBOutlet weak var allChannelsTableView: UITableView!
 
     let presentationAssembly: IPresentationAssembly
-    let model: IAllChannelsModel
+    var model: IAllChannelsModel
 
     lazy var frc: NSFetchedResultsController<Channel> = model.getFetchedResultsController()
 
@@ -37,6 +37,8 @@ class AllChannelsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        model.delegate = self
+        
         allChannelsTableView.register(UINib(nibName: "ChatCell", bundle: nil), forCellReuseIdentifier: "ChatCell")
 
         adjustNavigationBar()
@@ -46,7 +48,7 @@ class AllChannelsViewController: UIViewController {
         do {
             try frc.performFetch()
         } catch {
-            print("Can't fetch from current context")
+            Notificator.notifyUser("Can't fetch from current context", type: .error, in: self)
         }
     }
 

@@ -19,7 +19,7 @@ class ChannelViewController: UIViewController {
     static var channel: ChannelStruct?
 
     let presentationAssembly: IPresentationAssembly
-    let model: IChannelModel
+    var model: IChannelModel
 
     lazy var frc: NSFetchedResultsController<Message> = model.getFetchedResultsController(fromChannel: ChannelViewController.channel?.name)
 
@@ -42,6 +42,8 @@ class ChannelViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        model.delegate = self
 
         channelTableView.register(UINib(nibName: "inMessageCell", bundle: nil), forCellReuseIdentifier: "inMessageCell")
         channelTableView.register(UINib(nibName: "outMessageCell", bundle: nil), forCellReuseIdentifier: "outMessageCell")
@@ -54,7 +56,7 @@ class ChannelViewController: UIViewController {
         do {
             try frc.performFetch()
         } catch {
-            print("Can't fetch from current context")
+            Notificator.notifyUser("Can't fetch from current context", type: .error, in: self)
         }
 
         messageInputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)

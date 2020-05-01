@@ -17,5 +17,5 @@ protocol IConversationManager {
     func addChannel(named name: String) -> String
 
     func send(message: MessageStruct, toChannel id: String?)
-    func removeChannel(id: String?)
+    func removeChannel(id: String?, completion: ((Error) -> Void)?)
 }
