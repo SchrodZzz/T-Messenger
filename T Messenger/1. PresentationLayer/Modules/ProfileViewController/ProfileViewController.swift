@@ -56,6 +56,7 @@ class ProfileViewController: UIViewController {
         readProfile()
 
         userNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        aboutMeTextView.delegate = self
 
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
 
