@@ -56,20 +56,30 @@ class TMessengerTests: XCTestCase {
     
     func testThatSortedByDate() {
         // Given
-        let expectedResult = ["nil", "now", "hourAgo", "1970"]
+        let expectedResult = ["now", "nil", "hourAgo", "1970"]
         
         // When
-        let result = channelSorter.sort(mockData).values.flatMap { $0 }.map { $0.name }
+        let sorted = channelSorter.sort(mockData)
+        let activeChannels = sorted[.active] ?? []
+        let inactiveChannels = sorted[.inactive] ?? []
+        let flatMapOfValues = activeChannels + inactiveChannels
+        let result = flatMapOfValues.map { $0.name }
         
         // Then
         XCTAssertEqual(expectedResult, result)
     }
-
-//    func testPerformanceExample() {
-//        // This is an example of a performance test case.
-//        measure {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
+    
+    func testThatSeparatedIntoStates() {
+        // Given
+        let expectedResult: [ChannelState: [String]] = [.active: ["now"],
+                                                        .inactive: ["nil", "hourAgo", "1970"]]
+        
+        // When
+        let sorted = channelSorter.sort(mockData)
+        let result = sorted.mapValues { $0.map { $0.name } }
+        
+        // Then
+        XCTAssertEqual(expectedResult, result)
+    }
 
 }

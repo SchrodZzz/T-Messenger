@@ -8,18 +8,21 @@
 
 import Foundation
 
-enum MessageState {
+enum ChannelState {
     case active, inactive
 }
 
 protocol IChannelSorter {
-    func sort(_ channels: [Channel]) -> [MessageState: [Channel]]
+    func sort(_ channels: [Channel]) -> [ChannelState: [Channel]]
 }
 
 final class ChannelSorter: IChannelSorter {
-    func sort(_ channels: [Channel]) -> [MessageState: [Channel]] {
-        var sortedChannels: [MessageState: [Channel]] = [.active: [], .inactive: []]
-        sortedChannels[.active] = channels.sorted { $0.lastActivity ?? Date() > $1.lastActivity ?? Date() }
+    func sort(_ channels: [Channel]) -> [ChannelState: [Channel]] {
+        var sortedChannels: [ChannelState: [Channel]] = [.active: [], .inactive: []]
+        let sorted = channels.sorted { $0.lastActivity ?? Date() > $1.lastActivity ?? Date() }
+        sorted.forEach { channel in
+            sortedChannels[channel.isActive ? .active : .inactive]?.append(channel)
+        }
         return sortedChannels
     }
 }
