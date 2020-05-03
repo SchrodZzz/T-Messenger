@@ -1,5 +1,9 @@
 #  T Messenger
 ## Versions
+#### v0.12
+```
+Add some tests
+``` 
 #### v0.11
 ```
 Add some animations

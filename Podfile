@@ -8,5 +8,9 @@ target 'T Messenger' do
   # Pods for T Messenger
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  
+  target 'T MessengerTests' do
+    inherit! :complete
+  end
 
 end
