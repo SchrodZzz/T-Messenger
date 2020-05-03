@@ -57,6 +57,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imf-Hr-tQZ">
                     <rect key="frame" x="20" y="802" width="374" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <accessibility key="accessibilityConfiguration" label="Edit"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="dfx-Ac-75t"/>
                     </constraints>

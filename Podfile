@@ -12,5 +12,9 @@ target 'T Messenger' do
   target 'T MessengerTests' do
     inherit! :complete
   end
+  
+  target 'T MessengerUITests' do
+    inherit! :complete
+  end
 
 end

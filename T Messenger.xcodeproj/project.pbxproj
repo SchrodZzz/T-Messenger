@@ -55,6 +55,7 @@
 		20C3E4CB245DAD77000F95CD /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3E4CA245DAD77000F95CD /* Channel.swift */; };
 		20C3E4CD245DAD8B000F95CD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3E4CC245DAD8B000F95CD /* Message.swift */; };
 		20CCD7B2240C1D1200C6C9A6 /* IConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CCD7B1240C1D1200C6C9A6 /* IConfigurableView.swift */; };
+		20D1EEB4245EEC530036DB91 /* TMessengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1EEB3245EEC530036DB91 /* TMessengerUITests.swift */; };
 		20D4B9C2245BECEF00491E11 /* Notificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D4B9C1245BECEF00491E11 /* Notificator.swift */; };
 		20D4B9C4245BEECB00491E11 /* String+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D4B9C3245BEECB00491E11 /* String+Formatter.swift */; };
 		20DDAD5F24432EA500CCBE25 /* Profile+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD5E24432EA500CCBE25 /* Profile+Delegates.swift */; };
@@ -80,12 +81,20 @@
 		20DDAD952443830A00CCBE25 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD942443830A00CCBE25 /* PresentationAssembly.swift */; };
 		20DDAD9B2443A56F00CCBE25 /* AllChannels.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DDAD9A2443A56F00CCBE25 /* AllChannels.xib */; };
 		20DDAD9D2443AA0100CCBE25 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DDAD9C2443AA0100CCBE25 /* ChatCell.xib */; };
+		488D269693726A2A3653551A /* Pods_T_Messenger_T_MessengerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505ED32BF5360A006A877EAA /* Pods_T_Messenger_T_MessengerUITests.framework */; };
 		A627A4A36A40318191F43D0A /* Pods_T_Messenger_T_MessengerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38EB80F28CD4469B4C0CCE3 /* Pods_T_Messenger_T_MessengerTests.framework */; };
 		AE120022E1376CCE65CDD3F5 /* Pods_T_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE9B76EF40B79540D7A72AC /* Pods_T_Messenger.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		20856CB5245E943500EBFC07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 201A4E8823F6715D0036B7FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 201A4E8F23F6715D0036B7FC;
+			remoteInfo = "T Messenger";
+		};
+		20D1EEB6245EEC530036DB91 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 201A4E8823F6715D0036B7FC /* Project object */;
 			proxyType = 1;
@@ -147,6 +156,9 @@
 		20C3E4CA245DAD77000F95CD /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		20C3E4CC245DAD8B000F95CD /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		20CCD7B1240C1D1200C6C9A6 /* IConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IConfigurableView.swift; sourceTree = "<group>"; };
+		20D1EEB1245EEC530036DB91 /* T MessengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "T MessengerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D1EEB3245EEC530036DB91 /* TMessengerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMessengerUITests.swift; sourceTree = "<group>"; };
+		20D1EEB5245EEC530036DB91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20D4B9C1245BECEF00491E11 /* Notificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificator.swift; sourceTree = "<group>"; };
 		20D4B9C3245BEECB00491E11 /* String+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formatter.swift"; sourceTree = "<group>"; };
 		20DDAD5E24432EA500CCBE25 /* Profile+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+Delegates.swift"; sourceTree = "<group>"; };
@@ -173,8 +185,11 @@
 		20DDAD9A2443A56F00CCBE25 /* AllChannels.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllChannels.xib; sourceTree = "<group>"; };
 		20DDAD9C2443AA0100CCBE25 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		2CA0E28815B4D4050E490F3A /* Pods-T Messenger-T MessengerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T Messenger-T MessengerTests.debug.xcconfig"; path = "Target Support Files/Pods-T Messenger-T MessengerTests/Pods-T Messenger-T MessengerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4A9F7A19FA163E178F6F8027 /* Pods-T Messenger-T MessengerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T Messenger-T MessengerUITests.release.xcconfig"; path = "Target Support Files/Pods-T Messenger-T MessengerUITests/Pods-T Messenger-T MessengerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		505ED32BF5360A006A877EAA /* Pods_T_Messenger_T_MessengerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T_Messenger_T_MessengerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE9B76EF40B79540D7A72AC /* Pods_T_Messenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T_Messenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8660C21ADD17C0AC2C99510A /* Pods-T Messenger-T MessengerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T Messenger-T MessengerTests.release.xcconfig"; path = "Target Support Files/Pods-T Messenger-T MessengerTests/Pods-T Messenger-T MessengerTests.release.xcconfig"; sourceTree = "<group>"; };
+		8FE8FA1CCD1EC18461E381C2 /* Pods-T Messenger-T MessengerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T Messenger-T MessengerUITests.debug.xcconfig"; path = "Target Support Files/Pods-T Messenger-T MessengerUITests/Pods-T Messenger-T MessengerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A38EB80F28CD4469B4C0CCE3 /* Pods_T_Messenger_T_MessengerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T_Messenger_T_MessengerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3D98729F2AAD78745169BB /* Pods-T Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T Messenger.debug.xcconfig"; path = "Target Support Files/Pods-T Messenger/Pods-T Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +211,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		20D1EEAE245EEC530036DB91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				488D269693726A2A3653551A /* Pods_T_Messenger_T_MessengerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -205,6 +228,7 @@
 				20DDAD7E24435EBC00CCBE25 /* RootAssembly.swift */,
 				201A4E9223F6715D0036B7FC /* T Messenger */,
 				20856CB1245E943400EBFC07 /* T MessengerTests */,
+				20D1EEB2245EEC530036DB91 /* T MessengerUITests */,
 				201A4E9123F6715D0036B7FC /* Products */,
 				5601EE936350F75E15284FA6 /* Pods */,
 				71F0F5B9C394E18F09467BDD /* Frameworks */,
@@ -216,6 +240,7 @@
 			children = (
 				201A4E9023F6715D0036B7FC /* T Messenger.app */,
 				20856CB0245E943400EBFC07 /* T MessengerTests.xctest */,
+				20D1EEB1245EEC530036DB91 /* T MessengerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -373,6 +398,15 @@
 				20C3E4CC245DAD8B000F95CD /* Message.swift */,
 			);
 			path = CoreDataClasses;
+			sourceTree = "<group>";
+		};
+		20D1EEB2245EEC530036DB91 /* T MessengerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				20D1EEB3245EEC530036DB91 /* TMessengerUITests.swift */,
+				20D1EEB5245EEC530036DB91 /* Info.plist */,
+			);
+			path = "T MessengerUITests";
 			sourceTree = "<group>";
 		};
 		20DDAD522443128700CCBE25 /* 1. PresentationLayer */ = {
@@ -578,6 +612,8 @@
 				1A2ECE55287A73A67F9CEE54 /* Pods-T Messenger.release.xcconfig */,
 				2CA0E28815B4D4050E490F3A /* Pods-T Messenger-T MessengerTests.debug.xcconfig */,
 				8660C21ADD17C0AC2C99510A /* Pods-T Messenger-T MessengerTests.release.xcconfig */,
+				8FE8FA1CCD1EC18461E381C2 /* Pods-T Messenger-T MessengerUITests.debug.xcconfig */,
+				4A9F7A19FA163E178F6F8027 /* Pods-T Messenger-T MessengerUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -587,6 +623,7 @@
 			children = (
 				5FE9B76EF40B79540D7A72AC /* Pods_T_Messenger.framework */,
 				A38EB80F28CD4469B4C0CCE3 /* Pods_T_Messenger_T_MessengerTests.framework */,
+				505ED32BF5360A006A877EAA /* Pods_T_Messenger_T_MessengerUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -634,6 +671,26 @@
 			productReference = 20856CB0245E943400EBFC07 /* T MessengerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		20D1EEB0245EEC530036DB91 /* T MessengerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20D1EEBA245EEC530036DB91 /* Build configuration list for PBXNativeTarget "T MessengerUITests" */;
+			buildPhases = (
+				F26C1FD54629E090D0B30CBA /* [CP] Check Pods Manifest.lock */,
+				20D1EEAD245EEC530036DB91 /* Sources */,
+				20D1EEAE245EEC530036DB91 /* Frameworks */,
+				20D1EEAF245EEC530036DB91 /* Resources */,
+				FD2395EC301AD8AFF99155A0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20D1EEB7245EEC530036DB91 /* PBXTargetDependency */,
+			);
+			name = "T MessengerUITests";
+			productName = "T MessengerUITests";
+			productReference = 20D1EEB1245EEC530036DB91 /* T MessengerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -648,6 +705,10 @@
 						CreatedOnToolsVersion = 11.1;
 					};
 					20856CAF245E943400EBFC07 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 201A4E8F23F6715D0036B7FC;
+					};
+					20D1EEB0245EEC530036DB91 = {
 						CreatedOnToolsVersion = 11.1;
 						TestTargetID = 201A4E8F23F6715D0036B7FC;
 					};
@@ -668,6 +729,7 @@
 			targets = (
 				201A4E8F23F6715D0036B7FC /* T Messenger */,
 				20856CAF245E943400EBFC07 /* T MessengerTests */,
+				20D1EEB0245EEC530036DB91 /* T MessengerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -692,6 +754,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		20856CAE245E943400EBFC07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20D1EEAF245EEC530036DB91 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -772,6 +841,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-T Messenger/Pods-T Messenger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F26C1FD54629E090D0B30CBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-T Messenger-T MessengerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD2395EC301AD8AFF99155A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-T Messenger-T MessengerUITests/Pods-T Messenger-T MessengerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-T Messenger-T MessengerUITests/Pods-T Messenger-T MessengerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-T Messenger-T MessengerUITests/Pods-T Messenger-T MessengerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FFB63688B306AE3588D59131 /* [CP] Check Pods Manifest.lock */ = {
@@ -875,6 +983,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		20D1EEAD245EEC530036DB91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20D1EEB4245EEC530036DB91 /* TMessengerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -882,6 +998,11 @@
 			isa = PBXTargetDependency;
 			target = 201A4E8F23F6715D0036B7FC /* T Messenger */;
 			targetProxy = 20856CB5245E943500EBFC07 /* PBXContainerItemProxy */;
+		};
+		20D1EEB7245EEC530036DB91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 201A4E8F23F6715D0036B7FC /* T Messenger */;
+			targetProxy = 20D1EEB6245EEC530036DB91 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1092,6 +1213,44 @@
 			};
 			name = Release;
 		};
+		20D1EEB8245EEC530036DB91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FE8FA1CCD1EC18461E381C2 /* Pods-T Messenger-T MessengerUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "T MessengerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tinkoff.T-MessengerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "T Messenger";
+			};
+			name = Debug;
+		};
+		20D1EEB9245EEC530036DB91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A9F7A19FA163E178F6F8027 /* Pods-T Messenger-T MessengerUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "T MessengerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tinkoff.T-MessengerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "T Messenger";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1118,6 +1277,15 @@
 			buildConfigurations = (
 				20856CB8245E943500EBFC07 /* Debug */,
 				20856CB9245E943500EBFC07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20D1EEBA245EEC530036DB91 /* Build configuration list for PBXNativeTarget "T MessengerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20D1EEB8245EEC530036DB91 /* Debug */,
+				20D1EEB9245EEC530036DB91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

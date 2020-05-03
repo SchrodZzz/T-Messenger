@@ -38,6 +38,16 @@
                ReferencedContainer = "container:T Messenger.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "20D1EEB0245EEC530036DB91"
+               BuildableName = "T MessengerUITests.xctest"
+               BlueprintName = "T MessengerUITests"
+               ReferencedContainer = "container:T Messenger.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
