@@ -19,6 +19,7 @@ protocol IChannelSorter {
 final class ChannelSorter: IChannelSorter {
     func sort(_ channels: [Channel]) -> [MessageState: [Channel]] {
         var sortedChannels: [MessageState: [Channel]] = [.active: [], .inactive: []]
+        sortedChannels[.active] = channels.sorted { $0.lastActivity ?? Date() > $1.lastActivity ?? Date() }
         return sortedChannels
     }
 }
