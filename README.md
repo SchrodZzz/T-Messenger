@@ -1,5 +1,9 @@
 #  T Messenger
 ## Versions
+#### v0.9
+```
+Migration to SOA + MVP architecture
+``` 
 #### v0.8
 ```
 Add CoreData support for channels and messages
