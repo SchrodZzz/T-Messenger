@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="T_Messenger" customModuleProvider="target">
+            <connections>
+                <outlet property="aboutMeTextView" destination="Zk7-C6-WpO" id="TDO-A0-CuZ"/>
+                <outlet property="activityIndicatorView" destination="tno-Ol-9Z8" id="GIf-wn-iBC"/>
+                <outlet property="profileEditButton" destination="Imf-Hr-tQZ" id="f6F-D8-sVL"/>
+                <outlet property="userImageChoiceButton" destination="jhy-rn-943" id="jAg-PX-cbf"/>
+                <outlet property="userImageView" destination="ySE-yN-fLD" id="3Ju-OE-P6h"/>
+                <outlet property="userNameTextField" destination="aQC-xX-BQ9" id="X8s-FA-HdP"/>
+                <outlet property="view" destination="NrN-CZ-Mdj" id="oGv-a7-s9N"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="NrN-CZ-Mdj">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ySE-yN-fLD">
+                    <rect key="frame" x="20" y="64" width="374" height="374"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ySE-yN-fLD" secondAttribute="height" multiplier="1:1" id="qI1-ht-HYs"/>
+                    </constraints>
+                </imageView>
+                <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhy-rn-943">
+                    <rect key="frame" x="330" y="374" width="64" height="64"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jhy-rn-943" secondAttribute="height" multiplier="1:1" id="1DR-4T-i40"/>
+                        <constraint firstAttribute="height" constant="64" id="TfL-dV-Lj2"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                    <state key="normal" image="Camera"/>
+                    <connections>
+                        <action selector="profileImageChoiceButtonPressed:" destination="-1" eventType="touchUpInside" id="Jx1-Jl-DqT"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zk7-C6-WpO">
+                    <rect key="frame" x="20" y="664" width="374" height="130"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="mzs-oi-iS0"/>
+                    </constraints>
+                    <string key="text">👨‍💻Люблю залипать в ноут 👨‍🎓Носить смешные шапочки 👨‍🏫Делать умный вид  (Scroll down👇)             For big texts: TextView &gt; Label 👀 👅</string>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imf-Hr-tQZ">
+                    <rect key="frame" x="20" y="802" width="374" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="dfx-Ac-75t"/>
+                    </constraints>
+                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <state key="normal" title="Редактировать"/>
+                    <connections>
+                        <action selector="editButtonPressed:" destination="-1" eventType="touchUpInside" id="nNG-Xm-9pr"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Unknown user" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQC-xX-BQ9">
+                    <rect key="frame" x="20" y="622" width="374" height="34"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tno-Ol-9Z8">
+                    <rect key="frame" x="197" y="784" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="tno-Ol-9Z8" firstAttribute="centerX" secondItem="Imf-Hr-tQZ" secondAttribute="centerX" id="38M-VZ-EsL"/>
+                <constraint firstItem="Imf-Hr-tQZ" firstAttribute="top" secondItem="Zk7-C6-WpO" secondAttribute="bottom" constant="8" id="5bL-Iq-Ua3"/>
+                <constraint firstItem="dCX-TT-SWS" firstAttribute="trailing" secondItem="Zk7-C6-WpO" secondAttribute="trailing" constant="20" id="7VS-L6-ZU3"/>
+                <constraint firstItem="Imf-Hr-tQZ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="dCX-TT-SWS" secondAttribute="leading" constant="20" id="A9j-lw-p1N"/>
+                <constraint firstItem="Zk7-C6-WpO" firstAttribute="leading" secondItem="dCX-TT-SWS" secondAttribute="leading" constant="20" id="AP0-e3-hhP"/>
+                <constraint firstItem="dCX-TT-SWS" firstAttribute="trailing" secondItem="ySE-yN-fLD" secondAttribute="trailing" constant="20" id="Elf-Lf-SCg"/>
+                <constraint firstItem="Zk7-C6-WpO" firstAttribute="top" secondItem="aQC-xX-BQ9" secondAttribute="bottom" constant="8" id="NdS-uo-mTZ"/>
+                <constraint firstItem="jhy-rn-943" firstAttribute="trailing" secondItem="ySE-yN-fLD" secondAttribute="trailing" id="NiL-ai-np2"/>
+                <constraint firstItem="ySE-yN-fLD" firstAttribute="leading" secondItem="dCX-TT-SWS" secondAttribute="leading" constant="20" id="PBG-uI-o0D"/>
+                <constraint firstItem="ySE-yN-fLD" firstAttribute="top" secondItem="dCX-TT-SWS" secondAttribute="top" constant="20" id="SZy-UI-cdZ"/>
+                <constraint firstItem="dCX-TT-SWS" firstAttribute="trailing" secondItem="Imf-Hr-tQZ" secondAttribute="trailing" constant="20" id="Vwp-uG-qjl"/>
+                <constraint firstItem="Zk7-C6-WpO" firstAttribute="trailing" secondItem="aQC-xX-BQ9" secondAttribute="trailing" id="cBN-kg-DfW"/>
+                <constraint firstItem="tno-Ol-9Z8" firstAttribute="centerY" secondItem="Zk7-C6-WpO" secondAttribute="bottom" id="cbp-in-tQ6"/>
+                <constraint firstItem="dCX-TT-SWS" firstAttribute="bottom" secondItem="Imf-Hr-tQZ" secondAttribute="bottom" constant="20" id="hny-oi-VnP"/>
+                <constraint firstItem="jhy-rn-943" firstAttribute="bottom" secondItem="ySE-yN-fLD" secondAttribute="bottom" id="tcW-vb-xRM"/>
+                <constraint firstItem="Zk7-C6-WpO" firstAttribute="leading" secondItem="aQC-xX-BQ9" secondAttribute="leading" id="tkK-PJ-9rr"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="dCX-TT-SWS"/>
+            <point key="canvasLocation" x="139" y="119"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Camera" width="128" height="128"/>
+        <image name="Placeholder" width="300" height="300"/>
+    </resources>
+</document>
