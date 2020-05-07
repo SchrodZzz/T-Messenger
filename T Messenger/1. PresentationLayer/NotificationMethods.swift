@@ -31,18 +31,4 @@ final class NotificationMethods {
             viewController.view.layoutIfNeeded()
         }, completion: nil)
     }
-    
-//    func keyboardWillChange(_ notification: Notification) {
-//        let duration: TimeInterval = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-//        let curve = (notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue ?? 0
-//        let options = UIView.KeyframeAnimationOptions(rawValue: curve << 16)
-//
-//        let y1 = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.origin.y ?? 0
-//        let y2 = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.origin.y ?? 0
-//        let deltaY = y2 - y1
-//
-//        UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: options, animations: {
-//            self.viewController.view.frame.origin.y += deltaY
-//        }, completion: nil)
-//    }
 }

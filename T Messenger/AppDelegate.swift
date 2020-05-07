@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
         
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         let controller = rootAssembly.presentationAssembly.allChannelsViewController()
         let navigationController = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigationController

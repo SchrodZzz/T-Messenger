@@ -21,7 +21,7 @@ class CoreDataStack {
     private let managedObjectModelName = "Model"
 
     lazy var managedObjectModel: NSManagedObjectModel? = {
-        guard let modelURL = Bundle.main.url(forResource: self.managedObjectModelName, withExtension: "momd") else { fatalError() }
+        guard let modelURL = Bundle.main.url(forResource: managedObjectModelName, withExtension: "momd") else { fatalError() }
         return NSManagedObjectModel(contentsOf: modelURL)
     }()
 
@@ -29,7 +29,7 @@ class CoreDataStack {
         guard let managedObjectModel: NSManagedObjectModel = managedObjectModel else { fatalError() }
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
         do {
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: self.storeURL, options: nil)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
         } catch {
             print("Error in adding persistent store to coordinator: \(error)")
         }
@@ -40,7 +40,7 @@ class CoreDataStack {
     lazy var masterContext: NSManagedObjectContext = {
         var masterContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
 
-        masterContext.persistentStoreCoordinator = self.persistentStoreCoordinator
+        masterContext.persistentStoreCoordinator = persistentStoreCoordinator
         masterContext.mergePolicy = NSOverwriteMergePolicy
         return masterContext
     }()
@@ -48,7 +48,7 @@ class CoreDataStack {
     lazy var mainContext: NSManagedObjectContext = {
         var mainContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
 
-        mainContext.parent = self.masterContext
+        mainContext.parent = masterContext
         mainContext.mergePolicy = NSOverwriteMergePolicy
         return mainContext
     }()
@@ -56,7 +56,7 @@ class CoreDataStack {
     lazy var saveContext: NSManagedObjectContext = {
         var saveContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
 
-        saveContext.parent = self.mainContext
+        saveContext.parent = mainContext
         saveContext.mergePolicy = NSOverwriteMergePolicy
         return saveContext
     }()

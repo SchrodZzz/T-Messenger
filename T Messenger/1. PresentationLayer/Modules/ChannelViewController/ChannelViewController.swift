@@ -66,7 +66,7 @@ class ChannelViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange),
                                                name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 
-        self.navigationItem.title = ChannelViewController.channel?.name ?? "Unknown channel name"
+        navigationItem.title = ChannelViewController.channel?.name ?? "Unknown channel name"
 
         sendButton.layer.cornerRadius = 10.0
     }
@@ -115,7 +115,7 @@ class ChannelViewController: UIViewController {
     func scrollToBottom() {
         let messageCount = tableView(channelTableView, numberOfRowsInSection: 0) - 1
         guard messageCount > 0 else { return }
-        self.channelTableView.scrollToRow(at: IndexPath(row: messageCount, section: 0), at: .bottom, animated: false)
+        channelTableView.scrollToRow(at: IndexPath(row: messageCount, section: 0), at: .bottom, animated: false)
     }
 
     func senderIsUser(senderId: String) -> Bool {

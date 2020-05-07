@@ -32,7 +32,7 @@ class FirebaseConversation: IConversationManager {
     }
 
     func fetchMessages(fromChannel id: String?, completion: @escaping (Error?, [DocumentChange]?) -> Void) {
-        self.channelIdentifier = id
+        channelIdentifier = id
         channelReference.order(by: "created").addSnapshotListener { snapshot, error in
             if let error = error {
                 completion(error, nil)
@@ -51,7 +51,7 @@ class FirebaseConversation: IConversationManager {
     }
 
     func send(message: MessageStruct, toChannel id: String?) {
-        self.channelIdentifier = id
+        channelIdentifier = id
         channelReference.addDocument(data: message.toDict)
     }
 

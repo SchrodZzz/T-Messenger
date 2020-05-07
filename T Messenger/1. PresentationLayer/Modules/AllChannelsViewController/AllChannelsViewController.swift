@@ -68,11 +68,11 @@ class AllChannelsViewController: UIViewController {
             }
         })
 
-        self.present(alert, animated: true)
+        present(alert, animated: true)
     }
 
     @objc func profileButtonPressed(_ sender: Any) {
-        self.present(presentationAssembly.profileViewController(), animated: true, completion: nil)
+        present(presentationAssembly.profileViewController(), animated: true, completion: nil)
     }
 
     private func adjustNavigationBar() {

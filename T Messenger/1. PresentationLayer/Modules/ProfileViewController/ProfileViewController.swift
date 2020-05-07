@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        self.setUI()
+        setUI()
     }
 
     override func viewDidLoad() {

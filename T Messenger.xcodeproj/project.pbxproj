@@ -47,7 +47,6 @@
 		20751F21240C0167009E5780 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751F20240C0167009E5780 /* ChannelViewController.swift */; };
 		20856CB3245E943500EBFC07 /* TMessengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20856CB2245E943400EBFC07 /* TMessengerTests.swift */; };
 		20856CBB245EA5C100EBFC07 /* ChannelSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20856CBA245EA5C100EBFC07 /* ChannelSorter.swift */; };
-		20856CC2245EBD1E00EBFC07 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DDAD7824434C3300CCBE25 /* Date+Formatter.swift */; };
 		20AB9067243A4C7700DD509A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20AB9066243A4C7700DD509A /* GoogleService-Info.plist */; };
 		20AF21B824559F4300C10B9D /* CustomAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AF21B724559F4300C10B9D /* CustomAnimations.swift */; };
 		20AF21BA2455A10100C10B9D /* PresentationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AF21B92455A10100C10B9D /* PresentationUtils.swift */; };
@@ -414,8 +413,9 @@
 			children = (
 				20DDAD8224435F7400CCBE25 /* Assembly */,
 				20DDAD5924431F9800CCBE25 /* Modules */,
-				20DDAD5824431F7500CCBE25 /* Notifications */,
 				20DDAD5724431F5A00CCBE25 /* Animations */,
+				20DDAD7724434C2000CCBE25 /* Extensions */,
+				2050A43A242758B30028318C /* NotificationMethods.swift */,
 				20AF21B92455A10100C10B9D /* PresentationUtils.swift */,
 				20D4B9C1245BECEF00491E11 /* Notificator.swift */,
 			);
@@ -438,7 +438,6 @@
 			isa = PBXGroup;
 			children = (
 				20DDAD8024435F1A00CCBE25 /* Assembly */,
-				20DDAD7724434C2000CCBE25 /* Extensions */,
 				20751F23240C0183009E5780 /* DataModels */,
 				20C3E4C7245DAD35000F95CD /* CoreDataClasses */,
 				2050A43324267B0A0028318C /* ConversationManager */,
@@ -466,14 +465,6 @@
 				20AF21B724559F4300C10B9D /* CustomAnimations.swift */,
 			);
 			path = Animations;
-			sourceTree = "<group>";
-		};
-		20DDAD5824431F7500CCBE25 /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				2050A43A242758B30028318C /* NotificationMethods.swift */,
-			);
-			path = Notifications;
 			sourceTree = "<group>";
 		};
 		20DDAD5924431F9800CCBE25 /* Modules */ = {
@@ -978,7 +969,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20856CC2245EBD1E00EBFC07 /* Date+Formatter.swift in Sources */,
 				20856CB3245E943500EBFC07 /* TMessengerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,7 +16,7 @@ extension AllChannelsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = frc.object(at: indexPath)
         ChannelViewController.channel = ChannelStruct(channel)
-        self.navigationController?.pushViewController(presentationAssembly.channelViewController(), animated: true)
+        navigationController?.pushViewController(presentationAssembly.channelViewController(), animated: true)
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

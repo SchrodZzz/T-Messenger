@@ -93,7 +93,7 @@ extension ProfileViewController: IAvatarsControllerDelegate {
 
 extension ProfileViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        self.profileIsChanged = true
+        profileIsChanged = true
     }
 }
 
